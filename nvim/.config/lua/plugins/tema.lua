@@ -1,0 +1,1 @@
+../../../../dotfiles-stow/nvim/.config/nvim/lua/plugins/tema.lua
