@@ -19,12 +19,12 @@ title_format   = "Yazi: {cwd}"
 [preview]
 wrap            = "no"
 tab_size        = 2
-max_width       = 600
-max_height      = 900
+max_width       = 1920
+max_height      = 1080
 cache_dir       = ""
 image_delay     = 30
-image_filter    = "triangle"
-image_quality   = 75
+image_filter    = "lanczos3"
+image_quality   = 90
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
@@ -33,6 +33,14 @@ edit = [
 	{ run = "${EDITOR:-nvim} %s", desc = "$EDITOR",      for = "unix", block = true },
 	{ run = "code %s",          desc = "code",         for = "windows", orphan = true },
 	{ run = "code -w %s",       desc = "code (block)", for = "windows", block = true },
+]
+image = [
+	{ run = "imv %s",                                                    desc = "Open with imv",        for = "unix", orphan = true },
+	{ run = "nsxiv %s",                                                  desc = "Open with nsxiv",      for = "unix", orphan = true },
+	{ run = "feh -F %s",                                                 desc = "Open with feh",        for = "unix", orphan = true },
+	{ run = "xdg-open %s",                                               desc = "Open with xdg-open",   for = "linux", orphan = true },
+	{ run = "open %s",                                                   desc = "Open",                 for = "macos", orphan = true },
+	{ run = 'start "" %s',                                               desc = "Open",                 for = "windows", orphan = true },
 ]
 play = [
 	{ run = "xdg-open %s1",                desc = "Play", for = "linux" },
@@ -70,7 +78,7 @@ rules = [
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image
-	{ mime = "image/*", use = [ "open", "reveal" ] },
+	{ mime = "image/*", use = [ "image", "open", "reveal" ] },
 	# Media
 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
 	# Archive

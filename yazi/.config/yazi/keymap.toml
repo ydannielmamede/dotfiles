@@ -20,3 +20,29 @@ run = "plugin mount"
 on   = "l"
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
+
+# Image viewer
+[[mgr.prepend_keymap]]
+on   = [ "e" ]
+run  = "open --with=image"
+desc = "Open image in full screen"
+for  = "image/*"
+
+# Image preview in terminal
+[[image.prepend_keymap]]
+on   = [ "e" ]
+run  = "open"
+desc = "Open in external viewer"
+
+# Image navigation
+[[image.prepend_keymap]]
+on   = [ "q" ]
+run  = "close"
+desc = "Close image"
+
+# Enter image mode with Return
+[[mgr.prepend_keymap]]
+on   = [ "<Enter>" ]
+run  = "open --with=image"
+desc = "Open image in full screen"
+for  = "image/*"
