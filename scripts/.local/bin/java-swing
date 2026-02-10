@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# Força XWayland (Swing/AWT no niri)
+export GDK_BACKEND=x11
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Nenhum argumento
+if [ "$#" -eq 0 ]; then
+  echo "Uso:"
+  echo "  java-x11 NomeDaClasse"
+  echo "  java-x11 NomeDaClasse.java"
+  exit 1
+fi
+
+ARG="$1"
+
+# Caso 1: passou um arquivo .java
+if [ "${ARG##*.}" = "java" ]; then
+  SRC="$ARG"
+  CLASS="${ARG%.java}"
+else
+  # Caso 2: passou o nome da classe
+  SRC="$ARG.java"
+  CLASS="$ARG"
+fi
+
+# Verifica se o fonte existe
+if [ ! -f "$SRC" ]; then
+  echo "Arquivo não encontrado: $SRC"
+  exit 1
+fi
+
+# Compila somente se necessário
+if [ ! -f "$CLASS.class" ] || [ "$SRC" -nt "$CLASS.class" ]; then
+  javac "$SRC" || exit 1
+fi
+
+# Executa passando argumentos extras
+shift
+exec java "$CLASS" "$@"
+

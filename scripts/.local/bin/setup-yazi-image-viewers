@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Script para configurar visualizadores de imagem no Yazi
+
+echo "🔧 Configurando visualizadores de imagem para Yazi..."
+
+# Detectar distribuição
+if command -v pacman >/dev/null 2>&1; then
+    DISTRO="arch"
+elif command -v apt >/dev/null 2>&1; then
+    DISTRO="debian"
+elif command -v dnf >/dev/null 2>&1; then
+    DISTRO="fedora"
+else
+    echo "❌ Distribuição não suportada automaticamente"
+    exit 1
+fi
+
+echo "📦 Instalando visualizadores de imagem..."
+
+case $DISTRO in
+    arch)
+        echo "🔄 Instalando imv (visualizador minimalista para terminal)..."
+        if command -v sudo >/dev/null 2>&1; then
+            sudo pacman -S --needed imv
+        else
+            echo "⚠️  Por favor, instale manualmente: sudo pacman -S imv"
+        fi
+        ;;
+    debian)
+        echo "🔄 Instalando feh (visualizador leve)..."
+        if command -v sudo >/dev/null 2>&1; then
+            sudo apt update && sudo apt install -y feh
+        else
+            echo "⚠️  Por favor, instale manualmente: sudo apt install feh"
+        fi
+        ;;
+    fedora)
+        echo "🔄 Instalando feh..."
+        if command -v sudo >/dev/null 2>&1; then
+            sudo dnf install -y feh
+        else
+            echo "⚠️  Por favor, instale manualmente: sudo dnf install feh"
+        fi
+        ;;
+esac
+
+echo "✅ Configuração concluída!"
+echo ""
+echo "🎮 Atalhos configurados:"
+echo "  Enter/E  - Abrir imagem em tela cheia"
+echo "  q        - Fechar visualização"
+echo "  l        - Smart Enter (entra na pasta ou abre imagem)"
+echo ""
+echo "📸 O Yazi agora suporta preview de imagens em alta qualidade!"
