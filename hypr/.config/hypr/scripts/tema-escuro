@@ -1,0 +1,6 @@
+#!/bin/bash
+
+gsettings set org.gnome.desktop.interface gtk-theme "tema-escuro"
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+wal --theme "/home/dannielmamede/.config/wal/colorschemes/dark/tema-escuro.json"
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+gsettings set org.gnome.desktop.interface gtk-theme "tema-claro"
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+wal --theme "/home/dannielmamede/.config/wal/colorschemes/light/tema-claro.json"
+
