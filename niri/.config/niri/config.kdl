@@ -696,7 +696,7 @@ binds {
 }
 
 
-// spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 //
 //
 //
