@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CURRENT_THEME=$(gsettings get org.gnome.desktop.interface gtk-theme)
+
+if [[ "$CURRENT_THEME" == "'tema-claro'" ]]; then
+    gsettings set org.gnome.desktop.interface gtk-theme "tema-escuro"
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    # Atualizar Noctalia para modo escuro
+    jq '.colorSchemes.darkMode = true' ~/.config/noctalia/settings.json > ~/.config/noctalia/settings.json.tmp && mv ~/.config/noctalia/settings.json.tmp ~/.config/noctalia/settings.json
+    echo "Tema alterado para modo escuro"
+else
+    gsettings set org.gnome.desktop.interface gtk-theme "tema-claro"
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    # Atualizar Noctalia para modo claro
+    jq '.colorSchemes.darkMode = false' ~/.config/noctalia/settings.json > ~/.config/noctalia/settings.json.tmp && mv ~/.config/noctalia/settings.json.tmp ~/.config/noctalia/settings.json
+    echo "Tema alterado para modo claro"
+fi
