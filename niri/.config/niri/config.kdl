@@ -117,7 +117,7 @@ output "DP-3" {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 0
+    gaps 10
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -384,7 +384,7 @@ window-rule {
 
 window-rule {
   // Rounded corners for a modern look.
-  geometry-corner-radius 0
+  geometry-corner-radius 10
 
   // Clips window contents to the rounded corner boundaries.
   clip-to-geometry true
