@@ -4,6 +4,7 @@ return {
     config = function()
       require("code_runner").setup({
         filetype = {
+          pascal = "cd $dir && fpc $fileName && $dir/$fileNameWithoutExt",
           java = {
             "cd $dir &&",
             "javac $fileName &&",
