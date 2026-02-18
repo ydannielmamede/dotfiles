@@ -16,9 +16,6 @@ return {
           "RainbowCyan",
         },
       },
-      scope = {
-        enabled = true,
-      },
     },
     config = function(_, opts)
       local ibl = require("ibl")
@@ -39,3 +36,4 @@ return {
     end,
   },
 }
+
