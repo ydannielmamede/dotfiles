@@ -49,6 +49,7 @@ return {
         end, opts)
 
         jdtls.setup_dap({ hotcodereplace = "auto" })
+        require("jdtls.dap").setup_dap_main_class_configs()
         jdtls.setup.add_commands()
 
         -- Comandos buffer-locais para build/run
