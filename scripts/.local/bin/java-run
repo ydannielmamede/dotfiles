@@ -1,19 +1,33 @@
 #!/bin/bash
 
-# 1. Cria a pasta bin se não existir
-mkdir -p bin
+# 1. Detecta a raiz do projeto usando o Git
+PROJECT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null)
 
-# 2. Compila TODOS os arquivos .java (incluindo subpastas)
-# O comando 'find' busca todos os arquivos .java e os entrega para o javac
-find src -name "*.java" > sources.txt
-javac -d bin -cp "lib/*" @sources.txt
+if [ -z "$PROJECT_ROOT" ]; then
+    PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
+
+cd "$PROJECT_ROOT"
+
+# 2. Configurações de pastas
+BIN_DIR="./bin"
+SRC_DIR="./src"
+LIB_DIR="./lib"
+
+# 3. Limpeza e preparação (COM QUEBRA DE LINHA REAL)
+mkdir -p "$BIN_DIR"
+rm -rf "$BIN_DIR"/*
+
+# 4. Compilação Recursiva
+find "$SRC_DIR" -name "*.java" > sources.txt
+javac -d "$BIN_DIR" -cp "$LIB_DIR/*:$SRC_DIR" @sources.txt
 rm sources.txt
 
-# 3. Se a compilação deu certo, executa
+# 5. Execução
 if [ $? -eq 0 ]; then
-    echo "--- Compilação concluída com sucesso! ---"
-    # Lembre-se de usar o nome completo da classe Main (incluindo o pacote, se houver)
-    java -cp "bin:lib/*" App
+    # Se o App tiver 'package', lembre de usar 'pacote.App'
+    java -cp "$BIN_DIR:$LIB_DIR/*" App
 else
-    echo "--- Erro na compilação ---"
+    echo "!!! Erro de Compilação !!!"
+    exit 1
 fi
