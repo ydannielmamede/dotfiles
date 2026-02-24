@@ -7,3 +7,4 @@ vim.lsp.enable("cssls");
 vim.lsp.enable("hyprls");
 vim.lsp.enable("clangd");
 vim.lsp.enable("taplo");
+vim.lsp.enable("lemminx");

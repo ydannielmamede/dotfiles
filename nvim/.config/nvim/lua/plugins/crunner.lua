@@ -6,9 +6,7 @@ return {
         filetype = {
           pascal = "cd $dir && fpc $fileName && $dir/$fileNameWithoutExt",
           java = {
-            "cd $dir &&",
-            "javac $fileName &&",
-            "java $fileNameWithoutExt",
+              "java-run",
           },
           python = "python3 -u",
           typescript = "deno run",

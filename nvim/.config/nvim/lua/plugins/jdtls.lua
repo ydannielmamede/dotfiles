@@ -43,6 +43,11 @@ return {
         vim.keymap.set("n", "<leader>fm", function() vim.lsp.buf.format({ async = true }) end, opts)
         vim.keymap.set("n", "<leader>oi", jdtls.organize_imports, opts)
 
+        vim.keymap.set("n", "<leader>re", function()
+  require("jdtls.dap").setup_dap_main_class_configs()
+  require("dap").continue()
+end, opts)
+
         -- Seu atalho (code action "source")
         vim.keymap.set("n", "<leader>jg", function()
           vim.lsp.buf.code_action({ context = { only = { "source" } } })

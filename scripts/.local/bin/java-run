@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# 1. Cria a pasta bin se não existir
+mkdir -p bin
+
+# 2. Compila TODOS os arquivos .java (incluindo subpastas)
+# O comando 'find' busca todos os arquivos .java e os entrega para o javac
+find src -name "*.java" > sources.txt
+javac -d bin -cp "lib/*" @sources.txt
+rm sources.txt
+
+# 3. Se a compilação deu certo, executa
+if [ $? -eq 0 ]; then
+    echo "--- Compilação concluída com sucesso! ---"
+    # Lembre-se de usar o nome completo da classe Main (incluindo o pacote, se houver)
+    java -cp "bin:lib/*" App
+else
+    echo "--- Erro na compilação ---"
+fi
