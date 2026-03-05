@@ -51,3 +51,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 export PATH="$HOME/.npm-global/bin:$PATH"
+. "$HOME/.cargo/env"

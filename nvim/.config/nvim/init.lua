@@ -1,6 +1,7 @@
 require("config.lazy")
 require("config.lsp")
 require("config.options")
+require("config.diagnostics")
 
 vim.opt.termguicolors = true
 require("bufferline").setup{}
