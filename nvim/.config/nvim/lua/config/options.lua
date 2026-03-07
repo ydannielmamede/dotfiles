@@ -4,6 +4,9 @@ vim.opt.number = true
 -- Abrir links com xdg-open
 vim.g.netrw_browsex_viewer = "xdg-open"
 
+-- Selcionar tudo com Ctrl+A
+ vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true })
+
 -- Salvar no Ctrl+S
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 -- Ctrl+X = salvar e sair
@@ -27,9 +30,9 @@ vim.keymap.set("n", "<leader>lk", ":LiveServerStop<CR>", { desc = "Live Server S
 --   bg = "NONE"
 -- })
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
 --renomear rapido

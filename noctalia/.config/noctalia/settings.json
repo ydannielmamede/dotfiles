@@ -231,7 +231,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Tokyo Night",
+        "predefinedScheme": "Tokyo Night Moon",
         "schedulingMode": "off",
         "useWallpaperColors": false
     },
@@ -337,7 +337,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1,
+        "animationSpeed": 1.7,
         "autoStartAuth": false,
         "avatarImage": "/home/dannielmamede/.face",
         "boxRadiusRatio": 1,
@@ -345,6 +345,7 @@
         "clockStyle": "custom",
         "compactLockScreen": false,
         "dimmerOpacity": 0,
+        "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": false,
         "enableShadows": true,
@@ -450,7 +451,7 @@
     "nightLight": {
         "autoSchedule": true,
         "dayTemp": "6500",
-        "enabled": true,
+        "enabled": false,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -572,7 +573,7 @@
         "showHeader": true,
         "showKeybinds": true
     },
-    "settingsVersion": 55,
+    "settingsVersion": 56,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
@@ -625,6 +626,10 @@
             {
                 "enabled": true,
                 "id": "gtk"
+            },
+            {
+                "enabled": true,
+                "id": "qt"
             }
         ],
         "enableUserTheming": false
@@ -661,7 +666,7 @@
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": false,
-        "solidColor": "#30363d",
+        "solidColor": "#b4b5b9",
         "sortOrder": "name",
         "transitionDuration": 500,
         "transitionEdgeSmoothness": 0.05,
