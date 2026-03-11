@@ -5,7 +5,7 @@ vim.opt.number = true
 vim.g.netrw_browsex_viewer = "xdg-open"
 
 -- Selcionar tudo com Ctrl+A
- vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true })
 
 -- Salvar no Ctrl+S
 vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
@@ -38,10 +38,10 @@ vim.opt.expandtab = true
 --renomear rapido
 vim.keymap.set("n", "<leader>R", vim.lsp.buf.rename, { desc = "Rename symbol" })
 
+--atalho para Wrap with Abbreviation do plugin Emmet
+vim.keymap.set("v", "<leader>w", "<C-y>,", { remap = true, desc = "Emmet Wrap" })
 
 --tirar barra embaixo
 vim.o.laststatus = 3
 vim.o.showmode = false
 vim.o.cmdheight = 0
-
-

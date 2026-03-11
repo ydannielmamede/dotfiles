@@ -14,12 +14,12 @@
     "enableWindowsSearch": true,
     "iconMode": "tabler",
     "ignoreMouseInput": false,
-    "overviewLayer": false,
+    "overviewLayer": true,
     "pinnedApps": [],
     "position": "center",
     "screenshotAnnotationTool": "",
     "showCategories": false,
-    "showIconBackground": false,
+    "showIconBackground": true,
     "sortByMostUsed": true,
     "terminalCommand": "kitty -e",
     "useApp2Unit": false,
@@ -221,7 +221,7 @@
   },
   "colorSchemes": {
     "darkMode": true,
-    "generationMethod": "dysfunctional",
+    "generationMethod": "tonal-spot",
     "manualSunrise": "06:30",
     "manualSunset": "18:30",
     "monitorForColors": "",
@@ -292,6 +292,7 @@
   "desktopWidgets": {
     "enabled": false,
     "gridSnap": false,
+    "gridSnapScale": false,
     "monitorWidgets": [],
     "overviewEnabled": true
   },
@@ -373,7 +374,7 @@
     "lockScreenCountdownDuration": 10000,
     "lockScreenMonitors": [],
     "lockScreenTint": 0,
-    "passwordChars": false,
+    "passwordChars": true,
     "radiusRatio": 1,
     "reverseScroll": false,
     "scaleRatio": 1.1500000000000001,
@@ -400,17 +401,17 @@
   },
   "idle": {
     "customCommands": "[]",
-    "enabled": false,
+    "enabled": true,
     "fadeDuration": 5,
     "lockCommand": "",
-    "lockTimeout": 660,
+    "lockTimeout": 300,
     "resumeLockCommand": "",
     "resumeScreenOffCommand": "",
     "resumeSuspendCommand": "",
     "screenOffCommand": "",
-    "screenOffTimeout": 600,
+    "screenOffTimeout": 300,
     "suspendCommand": "",
-    "suspendTimeout": 1800
+    "suspendTimeout": 600
   },
   "location": {
     "analogClockInCalendar": false,
@@ -552,7 +553,7 @@
         "command": "",
         "countdownEnabled": true,
         "enabled": true,
-        "keybind": ""
+        "keybind": "7"
       },
       {
         "action": "userspaceReboot",
@@ -629,18 +630,20 @@
   "ui": {
     "boxBorderEnabled": false,
     "fontDefault": "JetBrainsMono Nerd Font",
-    "fontDefaultScale": 1,
+    "fontDefaultScale": 0.92,
     "fontFixed": "JetBrainsMono Nerd Font",
     "fontFixedScale": 1,
     "panelBackgroundOpacity": 1,
     "panelsAttachedToBar": true,
+    "scrollbarAlwaysVisible": true,
     "settingsPanelMode": "attached",
     "settingsPanelSideBarCardStyle": false,
-    "tooltipsEnabled": true
+    "tooltipsEnabled": true,
+    "translucentWidgets": false
   },
   "wallpaper": {
     "automationEnabled": false,
-    "directory": "/home/dannielmamede/tokyonight-wallpapers",
+    "directory": "/home/dannielmamede/gruvbox-wallpapers",
     "enableMultiMonitorDirectories": false,
     "enabled": true,
     "favorites": [],
