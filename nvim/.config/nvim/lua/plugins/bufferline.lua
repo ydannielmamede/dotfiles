@@ -19,7 +19,7 @@ return {
 				view = "multiwindow",
 				show_tab_indicators = true,
 				persist_buffer_sort = true,
-				separator_style = "thin", -- "slant" | "thick" | "thin"
+				separator_style = "thick", -- "slant" | "thick" | "thin"
 				diagnostics = "nvim_lsp", -- mostra erros e avisos do LSP
 				always_show_bufferline = true,
 				offsets = {

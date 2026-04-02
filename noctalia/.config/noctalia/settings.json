@@ -6,7 +6,7 @@
         "clipboardWrapText": true,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
-        "density": "default",
+        "density": "comfortable",
         "enableClipPreview": true,
         "enableClipboardChips": true,
         "enableClipboardHistory": true,
@@ -50,7 +50,7 @@
         "density": "spacious",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
-        "fontScale": 1,
+        "fontScale": 1.1800000000000002,
         "frameRadius": 12,
         "frameThickness": 8,
         "hideOnOverview": false,
@@ -61,9 +61,9 @@
         "middleClickFollowMouse": false,
         "monitors": [
         ],
-        "mouseWheelAction": "none",
+        "mouseWheelAction": "volume",
         "mouseWheelWrap": true,
-        "outerCorners": true,
+        "outerCorners": false,
         "position": "top",
         "reverseScroll": false,
         "rightClickAction": "controlCenter",
@@ -74,12 +74,12 @@
         "showCapsule": false,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
-        "useSeparateOpacity": true,
+        "useSeparateOpacity": false,
         "widgetSpacing": 6,
         "widgets": {
             "center": [
                 {
-                    "clockColor": "none",
+                    "clockColor": "primary",
                     "customFont": "",
                     "formatHorizontal": "dddd, d MMMM HH:mm:ss",
                     "formatVertical": "HH mm - dd MM",
@@ -91,7 +91,7 @@
             "left": [
                 {
                     "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "none",
+                    "colorizeSystemIcon": "primary",
                     "customIconPath": "",
                     "enableColorization": true,
                     "icon": "noctalia",
@@ -101,7 +101,7 @@
                 {
                     "characterCount": 2,
                     "colorizeIcons": false,
-                    "emptyColor": "secondary",
+                    "emptyColor": "none",
                     "enableScrollWheel": true,
                     "focusedColor": "primary",
                     "followFocusedScreen": false,
@@ -131,7 +131,7 @@
                     "showArtistFirst": true,
                     "showProgressRing": true,
                     "showVisualizer": true,
-                    "textColor": "none",
+                    "textColor": "primary",
                     "useFixedWidth": true,
                     "visualizerType": "linear"
                 },
@@ -152,7 +152,7 @@
                 {
                     "compactMode": false,
                     "diskPath": "/",
-                    "iconColor": "none",
+                    "iconColor": "primary",
                     "id": "SystemMonitor",
                     "showCpuCores": false,
                     "showCpuFreq": false,
@@ -161,7 +161,7 @@
                     "showDiskAvailable": false,
                     "showDiskUsage": false,
                     "showDiskUsageAsPercent": false,
-                    "showGpuTemp": false,
+                    "showGpuTemp": true,
                     "showLoadAverage": false,
                     "showMemoryAsPercent": false,
                     "showMemoryUsage": true,
@@ -173,7 +173,7 @@
                 },
                 {
                     "displayMode": "alwaysShow",
-                    "iconColor": "none",
+                    "iconColor": "primary",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
                     "textColor": "none"
@@ -181,15 +181,9 @@
                 {
                     "applyToAllMonitors": false,
                     "displayMode": "alwaysShow",
-                    "iconColor": "none",
+                    "iconColor": "primary",
                     "id": "Brightness",
                     "textColor": "none"
-                },
-                {
-                    "defaultSettings": {
-                        "mode": "region"
-                    },
-                    "id": "plugin:screenshot"
                 },
                 {
                     "blacklist": [
@@ -208,7 +202,7 @@
     "brightness": {
         "backlightDeviceMappings": [
         ],
-        "brightnessStep": 5,
+        "brightnessStep": 1,
         "enableDdcSupport": true,
         "enforceMinimum": false
     },
@@ -229,14 +223,15 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": true,
-        "generationMethod": "rainbow",
+        "darkMode": false,
+        "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Tokyo Night Moon",
+        "predefinedScheme": "GitHub Dark",
         "schedulingMode": "off",
-        "useWallpaperColors": true
+        "syncGsettings": true,
+        "useWallpaperColors": false
     },
     "controlCenter": {
         "cards": [
@@ -265,7 +260,7 @@
                 "id": "media-sysmon-card"
             }
         ],
-        "diskPath": "/",
+        "diskPath": "/home",
         "position": "close_to_bar_button",
         "shortcuts": {
             "left": [
@@ -300,9 +295,73 @@
     },
     "desktopWidgets": {
         "enabled": false,
-        "gridSnap": false,
-        "gridSnapScale": false,
+        "gridSnap": true,
+        "gridSnapScale": true,
         "monitorWidgets": [
+            {
+                "name": "DP-3",
+                "widgets": [
+                    {
+                        "clockColor": "primary",
+                        "clockStyle": "analog",
+                        "customFont": "",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 2.2621487759398002,
+                        "showBackground": true,
+                        "useCustomFont": false,
+                        "x": 20,
+                        "y": 60
+                    },
+                    {
+                        "diskPath": "/home",
+                        "id": "SystemStat",
+                        "layout": "bottom",
+                        "roundedCorners": true,
+                        "scale": 1.5,
+                        "showBackground": true,
+                        "statType": "CPU",
+                        "x": 20,
+                        "y": 440
+                    },
+                    {
+                        "diskPath": "/",
+                        "id": "SystemStat",
+                        "layout": "bottom",
+                        "roundedCorners": true,
+                        "scale": 1.5,
+                        "showBackground": true,
+                        "statType": "Memory",
+                        "x": 20,
+                        "y": 640
+                    },
+                    {
+                        "diskPath": "/",
+                        "id": "SystemStat",
+                        "layout": "bottom",
+                        "roundedCorners": true,
+                        "scale": 1.5,
+                        "showBackground": true,
+                        "statType": "Network",
+                        "x": 20,
+                        "y": 840
+                    },
+                    {
+                        "colorName": "tertiary",
+                        "height": 72,
+                        "hideWhenIdle": true,
+                        "id": "AudioVisualizer",
+                        "roundedCorners": true,
+                        "scale": 3.875,
+                        "showBackground": false,
+                        "visualizerType": "linear",
+                        "width": 320,
+                        "x": 420,
+                        "y": 720
+                    }
+                ]
+            }
         ],
         "overviewEnabled": true
     },
@@ -351,12 +410,12 @@
         "clockStyle": "custom",
         "compactLockScreen": false,
         "dimmerOpacity": 0,
-        "enableBlurBehind": true,
+        "enableBlurBehind": false,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": false,
         "enableShadows": true,
         "forceBlackScreenCorners": true,
-        "iRadiusRatio": 0.6,
+        "iRadiusRatio": 1,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -390,10 +449,10 @@
         ],
         "lockScreenTint": 0,
         "passwordChars": true,
-        "radiusRatio": 0.6,
+        "radiusRatio": 1,
         "reverseScroll": false,
         "scaleRatio": 1.1500000000000001,
-        "screenRadiusRatio": 1.1500000000000001,
+        "screenRadiusRatio": 1,
         "shadowDirection": "center",
         "shadowOffsetX": 0,
         "shadowOffsetY": 0,
@@ -401,6 +460,7 @@
         "showHibernateOnLockScreen": false,
         "showScreenCorners": true,
         "showSessionButtonsOnLockScreen": true,
+        "smoothScrollEnabled": true,
         "telemetryEnabled": true
     },
     "hooks": {
@@ -435,7 +495,7 @@
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
         "name": "belem",
-        "showCalendarEvents": true,
+        "showCalendarEvents": false,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
         "use12hourFormat": false,
@@ -444,7 +504,6 @@
         "weatherShowEffects": true
     },
     "network": {
-        "airplaneModeEnabled": false,
         "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
@@ -457,11 +516,11 @@
     "nightLight": {
         "autoSchedule": true,
         "dayTemp": "6500",
-        "enabled": false,
+        "enabled": true,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4000"
+        "nightTemp": "3002"
     },
     "noctaliaPerformance": {
         "disableDesktopWidgets": true,
@@ -595,7 +654,7 @@
         "diskAvailWarningThreshold": 20,
         "diskCriticalThreshold": 90,
         "diskWarningThreshold": 80,
-        "enableDgpuMonitoring": false,
+        "enableDgpuMonitoring": true,
         "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
         "gpuCriticalThreshold": 90,
         "gpuWarningThreshold": 80,
@@ -645,19 +704,23 @@
             {
                 "enabled": true,
                 "id": "code"
+            },
+            {
+                "enabled": true,
+                "id": "discord"
             }
         ],
-        "enableUserTheming": true
+        "enableUserTheming": false
     },
     "ui": {
-        "boxBorderEnabled": false,
+        "boxBorderEnabled": true,
         "fontDefault": "JetBrainsMono Nerd Font",
         "fontDefaultScale": 0.92,
         "fontFixed": "JetBrainsMono Nerd Font",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
-        "scrollbarAlwaysVisible": false,
+        "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
@@ -665,14 +728,15 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/dannielmamede/tokyonight-wallpapers",
+        "directory": "/home/dannielmamede/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
         ],
         "fillColor": "#000000",
         "fillMode": "fit",
-        "hideWallpaperFilenames": false,
+        "hideWallpaperFilenames": true,
+        "linkLightAndDarkWallpapers": false,
         "monitorDirectories": [
             {
                 "directory": "/home/dannielmamede/tokyonight-wallpapers",
@@ -693,6 +757,7 @@
         "transitionDuration": 500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
+            "fade"
         ],
         "useOriginalImages": false,
         "useSolidColor": false,
