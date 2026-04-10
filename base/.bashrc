@@ -52,3 +52,9 @@ esac
 # pnpm end
 export PATH="$HOME/.npm-global/bin:$PATH"
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env" "$HOME/.cargo/env"
+
+#chaves openrouter para openclaude
+export CLAUDE_CODE_USE_OPENAI="1"
+export OPENAI_BASE_URL="https://openrouter.ai/api/v1"
+export OPENAI_API_KEY="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"
+export OPENAI_MODEL="openrouter/free"

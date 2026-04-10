@@ -167,7 +167,7 @@
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
                     "showSwapUsage": false,
-                    "textColor": "none",
+                    "textColor": "primary",
                     "useMonospaceFont": true,
                     "usePadding": false
                 },
@@ -176,14 +176,14 @@
                     "iconColor": "primary",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
-                    "textColor": "none"
+                    "textColor": "primary"
                 },
                 {
                     "applyToAllMonitors": false,
                     "displayMode": "alwaysShow",
                     "iconColor": "primary",
                     "id": "Brightness",
-                    "textColor": "none"
+                    "textColor": "primary"
                 },
                 {
                     "blacklist": [
@@ -223,12 +223,12 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": false,
+        "darkMode": true,
         "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "GitHub Dark",
+        "predefinedScheme": "Tokyo Night",
         "schedulingMode": "off",
         "syncGsettings": true,
         "useWallpaperColors": false
@@ -451,7 +451,7 @@
         "passwordChars": true,
         "radiusRatio": 1,
         "reverseScroll": false,
-        "scaleRatio": 1.1500000000000001,
+        "scaleRatio": 1.1,
         "screenRadiusRatio": 1,
         "shadowDirection": "center",
         "shadowOffsetX": 0,
@@ -491,17 +491,19 @@
     },
     "location": {
         "analogClockInCalendar": false,
+        "autoLocate": true,
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "belem",
+        "name": "Belém",
         "showCalendarEvents": false,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": false
     },
     "network": {
         "bluetoothAutoConnect": true,
@@ -515,12 +517,12 @@
     },
     "nightLight": {
         "autoSchedule": true,
-        "dayTemp": "6500",
-        "enabled": true,
+        "dayTemp": "5753",
+        "enabled": false,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "3002"
+        "nightTemp": "4209"
     },
     "noctaliaPerformance": {
         "disableDesktopWidgets": true,
@@ -707,7 +709,7 @@
             },
             {
                 "enabled": true,
-                "id": "discord"
+                "id": "pywalfox"
             }
         ],
         "enableUserTheming": false
@@ -715,23 +717,51 @@
     "ui": {
         "boxBorderEnabled": true,
         "fontDefault": "JetBrainsMono Nerd Font",
-        "fontDefaultScale": 0.92,
+        "fontDefaultScale": 0.88,
         "fontFixed": "JetBrainsMono Nerd Font",
         "fontFixedScale": 1,
-        "panelBackgroundOpacity": 1,
+        "panelBackgroundOpacity": 0.93,
         "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",
-        "settingsPanelSideBarCardStyle": false,
+        "settingsPanelSideBarCardStyle": true,
         "tooltipsEnabled": true,
         "translucentWidgets": false
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/dannielmamede/Pictures/Wallpapers",
+        "directory": "/home/dannielmamede/tokyonight-wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
+            {
+                "appearance": "light",
+                "colorScheme": "Tokyo Night",
+                "darkMode": false,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#2e7de9",
+                    "#9854f1",
+                    "#587539",
+                    "#f52a65"
+                ],
+                "path": "/home/dannielmamede/tokyonight-wallpapers/windows-11-blue-stock-white-background-light-official-3840x2160-5616.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Tokyo Night",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#7aa2f7",
+                    "#bb9af7",
+                    "#9ece6a",
+                    "#f7768e"
+                ],
+                "path": "/home/dannielmamede/tokyonight-wallpapers/windows-11-dark-mode-blue-stock-official-3840x2160-5630.jpg",
+                "useWallpaperColors": false
+            }
         ],
         "fillColor": "#000000",
         "fillMode": "fit",
@@ -752,7 +782,7 @@
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": true,
-        "solidColor": "#e91e63",
+        "solidColor": "#fabd2f",
         "sortOrder": "date_desc",
         "transitionDuration": 500,
         "transitionEdgeSmoothness": 0.05,
