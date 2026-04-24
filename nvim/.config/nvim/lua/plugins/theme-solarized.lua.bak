@@ -1,0 +1,75 @@
+return {
+	"maxmx03/solarized.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.o.termguicolors = true
+
+		require("solarized").setup({
+			palette = "selenized", -- solarized (default) | selenized
+			variant = "summer", -- spring | summer | autumn | winter
+
+			transparent = {
+				enabled = true,
+				pmenu = false,
+				normal = true,
+				normalfloat = false,
+				neotree = false,
+				nvimtree = false,
+				whichkey = false,
+				telescope = false,
+				lazy = false,
+			},
+
+			error_lens = {
+				text = false,
+				symbol = false,
+			},
+
+			styles = {
+				enabled = true,
+				comments = { italic = true },
+				keywords = { bold = true },
+				types = { bold = true },
+				constants = { bold = true },
+				functions = { italic = true },
+				variables = {},
+				parameters = {},
+				strings = {},
+			},
+			plugins = {
+				treesitter = true,
+				lspconfig = true,
+				navic = true,
+				cmp = true,
+				indentblankline = true,
+				neotree = true,
+				nvimtree = true,
+				whichkey = true,
+				dashboard = true,
+				gitsigns = true,
+				telescope = true,
+				noice = true,
+				hop = true,
+				ministatusline = true,
+				minitabline = true,
+				ministarter = true,
+				minicursorword = true,
+				notify = true,
+				rainbowdelimiters = true,
+				bufferline = true,
+				lazy = true,
+				rendermarkdown = true,
+				ale = true,
+				coc = true,
+				leap = true,
+				alpha = true,
+				yanky = true,
+				gitgutter = true,
+				mason = true,
+				flash = true,
+			},
+		})
+		vim.cmd.colorscheme("solarized")
+	end,
+}
