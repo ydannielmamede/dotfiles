@@ -14,7 +14,7 @@
         "enableSessionSearch": true,
         "enableSettingsSearch": true,
         "enableWindowsSearch": true,
-        "iconMode": "tabler",
+        "iconMode": "native",
         "ignoreMouseInput": false,
         "overviewLayer": true,
         "pinnedApps": [
@@ -49,7 +49,7 @@
         "contentPadding": 2,
         "density": "spacious",
         "displayMode": "always_visible",
-        "enableExclusionZoneInset": true,
+        "enableExclusionZoneInset": false,
         "fontScale": 1.1800000000000002,
         "frameRadius": 12,
         "frameThickness": 8,
@@ -63,7 +63,7 @@
         ],
         "mouseWheelAction": "volume",
         "mouseWheelWrap": true,
-        "outerCorners": true,
+        "outerCorners": false,
         "position": "top",
         "reverseScroll": false,
         "rightClickAction": "controlCenter",
@@ -71,7 +71,7 @@
         "rightClickFollowMouse": true,
         "screenOverrides": [
         ],
-        "showCapsule": false,
+        "showCapsule": true,
         "showOnWorkspaceSwitch": true,
         "showOutline": false,
         "useSeparateOpacity": false,
@@ -131,7 +131,7 @@
                     "showAlbumArt": true,
                     "showArtistFirst": true,
                     "showProgressRing": true,
-                    "showVisualizer": true,
+                    "showVisualizer": false,
                     "textColor": "primary",
                     "useFixedWidth": true,
                     "visualizerType": "linear"
@@ -297,44 +297,11 @@
                         "format": "HH:mm\\nd MMMM yyyy",
                         "id": "Clock",
                         "roundedCorners": true,
-                        "scale": 2.2621487759398002,
+                        "scale": 2.0801368054618856,
                         "showBackground": true,
                         "useCustomFont": true,
                         "x": 20,
                         "y": 60
-                    },
-                    {
-                        "diskPath": "/home",
-                        "id": "SystemStat",
-                        "layout": "bottom",
-                        "roundedCorners": true,
-                        "scale": 1.5,
-                        "showBackground": true,
-                        "statType": "CPU",
-                        "x": 20,
-                        "y": 440
-                    },
-                    {
-                        "diskPath": "/",
-                        "id": "SystemStat",
-                        "layout": "bottom",
-                        "roundedCorners": true,
-                        "scale": 1.5,
-                        "showBackground": true,
-                        "statType": "Memory",
-                        "x": 20,
-                        "y": 640
-                    },
-                    {
-                        "diskPath": "/",
-                        "id": "SystemStat",
-                        "layout": "bottom",
-                        "roundedCorners": true,
-                        "scale": 1.5,
-                        "showBackground": true,
-                        "statType": "Network",
-                        "x": 20,
-                        "y": 840
                     },
                     {
                         "colorName": "secondary",
@@ -346,8 +313,28 @@
                         "showBackground": false,
                         "visualizerType": "linear",
                         "width": 320,
-                        "x": 40,
-                        "y": 660
+                        "x": 20,
+                        "y": 1000
+                    },
+                    {
+                        "id": "Weather",
+                        "roundedCorners": true,
+                        "scale": 1.1685169559048583,
+                        "showBackground": true,
+                        "x": 20,
+                        "y": 400
+                    },
+                    {
+                        "defaultSettings": {
+                            "roundedCorners": true,
+                            "showBackground": true
+                        },
+                        "id": "plugin:calendar-widget",
+                        "roundedCorners": true,
+                        "scale": 1.2075471698113207,
+                        "showBackground": true,
+                        "x": 20,
+                        "y": 520
                     }
                 ]
             }
@@ -399,7 +386,7 @@
         "clockStyle": "custom",
         "compactLockScreen": false,
         "dimmerOpacity": 0.2,
-        "enableBlurBehind": false,
+        "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": false,
         "enableShadows": true,

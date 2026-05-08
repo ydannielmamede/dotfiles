@@ -1,0 +1,15 @@
+docker run -d \
+  --name primeiro-banco \
+  --restart unless-stopped \
+  -p 3306:3306 \
+  -e MYSQL_ROOT_PASSWORD_FILE=/run/secrets/mysql_root_password \
+  -e MYSQL_DATABASE_FILE=/run/secrets/mysql_database \
+  -e MYSQL_USER_FILE=/run/secrets/mysql_user \
+  -e MYSQL_PASSWORD_FILE=/run/secrets/mysql_password \
+  -v ~/banco-teste/secrets/mysql_root_password:/run/secrets/mysql_root_password:ro \
+  -v ~/banco-teste/secrets/mysql_password:/run/secrets/mysql_password:ro \
+  -v ~/banco-teste/secrets/mysql_database:/run/secrets/mysql_database:ro \
+  -v ~/banco-teste/secrets/mysql_user:/run/secrets/mysql_user:ro \
+  -v primeiro-banco-data:/var/lib/mysql \
+  mysql:8.4 \
+  --tls-version=""

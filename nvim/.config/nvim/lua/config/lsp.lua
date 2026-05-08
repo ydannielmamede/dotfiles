@@ -13,3 +13,4 @@ vim.lsp.enable("lemminx");
 vim.lsp.enable("rust_analyzer");
 vim.lsp.enable("dockerls");
 vim.lsp.enable("docker_compose_language_service")
+vim.lsp.enable("omnisharp")
