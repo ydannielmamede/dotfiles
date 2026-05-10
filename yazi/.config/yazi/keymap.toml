@@ -26,7 +26,6 @@ desc = "Enter the child directory, or open the file"
 on   = [ "e" ]
 run  = "open --with=image"
 desc = "Open image in full screen"
-for  = "image/*"
 
 # Image preview in terminal
 [[image.prepend_keymap]]
@@ -45,4 +44,9 @@ desc = "Close image"
 on   = [ "<Enter>" ]
 run  = "open --with=image"
 desc = "Open image in full screen"
-for  = "image/*"
+
+
+[[mgr.prepend_keymap]]
+on   = "<C-n>"
+run  = '''shell -- dragon-drop -x -i -a "$@"'''
+desc = "Drag and drop"
