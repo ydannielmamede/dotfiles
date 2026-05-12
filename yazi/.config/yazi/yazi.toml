@@ -4,7 +4,7 @@
 #:schema https://yazi-rs.github.io/schemas/yazi.json
 
 [mgr]
-ratio          = [ 2, 3, 3 ]
+ratio          = [ 2, 4, 4 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
 sort_reverse   = false
@@ -18,8 +18,8 @@ scrolloff      = 5
 mouse_events   = [ "click", "scroll", "drag" ]
 
 [preview]
-wrap            = "no"
-tab_size        = 2
+wrap            = "yes"
+tab_size        = 1
 max_width       = 600
 max_height      = 900
 cache_dir       = ""

@@ -48,5 +48,5 @@ desc = "Open image in full screen"
 
 [[mgr.prepend_keymap]]
 on   = "<C-n>"
-run  = '''shell -- dragon-drop -x -i -a "$@"'''
+run  = '''shell -- dragon-drop -x -a "$@"'''
 desc = "Drag and drop"
