@@ -80,7 +80,7 @@
             "center": [
                 {
                     "clockColor": "primary",
-                    "customFont": "JetBrainsMono NF ExtraBold",
+                    "customFont": "0xProto Nerd Font Mono",
                     "formatHorizontal": "dddd, d MMMM HH:mm:ss",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
@@ -105,7 +105,7 @@
                     "emptyColor": "none",
                     "enableScrollWheel": true,
                     "focusedColor": "primary",
-                    "followFocusedScreen": false,
+                    "followFocusedScreen": true,
                     "fontWeight": "bold",
                     "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
@@ -113,7 +113,7 @@
                     "id": "Workspace",
                     "labelMode": "index",
                     "occupiedColor": "secondary",
-                    "pillSize": 0.65,
+                    "pillSize": 0.6,
                     "showApplications": true,
                     "showApplicationsHover": false,
                     "showBadge": true,
@@ -494,7 +494,7 @@
     "nightLight": {
         "autoSchedule": true,
         "dayTemp": "5753",
-        "enabled": false,
+        "enabled": true,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -700,9 +700,9 @@
     },
     "ui": {
         "boxBorderEnabled": false,
-        "fontDefault": "JetBrainsMono Nerd Font",
-        "fontDefaultScale": 0.88,
-        "fontFixed": "JetBrainsMono Nerd Font",
+        "fontDefault": "0xProto Nerd Font Propo",
+        "fontDefaultScale": 0.87,
+        "fontFixed": "0xProto Nerd Font Mono",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.93,
         "panelsAttachedToBar": true,
