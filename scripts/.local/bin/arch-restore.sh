@@ -5,7 +5,7 @@ install_base_packages() {
   sudo pacman -Syu --noconfirm
   sudo pacman -S --needed --noconfirm \
     git neovim cliphist stow firefox yazi ffmpeg 7zip jq poppler fd \
-    ripgrep fzf zoxide resvg imagemagick starship eza hypridle 
+    ripgrep fzf zoxide resvg imagemagick starship eza 
 }
 
 install_yay() {
