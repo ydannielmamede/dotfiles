@@ -17,10 +17,18 @@ return {
           },
           c = "cd $dir && gcc $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt",
         },
-	vim.keymap.set("n", "<leader>r", ":RunCode<CR>", { noremap = true, silent = true })
-
       })
+
+      vim.keymap.set("n", "<leader>r", function()
+        local file = vim.fn.expand("%:p")
+        local ft = vim.bo.filetype
+
+        if ft == "lua" then
+          vim.cmd("belowright split | terminal lua " .. file)
+        else
+          vim.cmd("RunCode")
+        end
+      end, { noremap = true, silent = true })
     end,
   },
 }
-

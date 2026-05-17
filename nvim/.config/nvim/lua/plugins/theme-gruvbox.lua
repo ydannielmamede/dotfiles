@@ -2,6 +2,8 @@ return {
   "ellisonleao/gruvbox.nvim",
   priority = 1000,
   config = function()
+    local is_light = vim.o.background == "light"
+
     require("gruvbox").setup({
       terminal_colors = true,
       undercurl = true,
@@ -22,7 +24,13 @@ return {
       inverse = true,
       contrast = "hard",
       palette_overrides = {},
-      overrides = {},
+      overrides = {
+        Comment                  = { fg = is_light and "#7c6f64" or "#928374", italic = true },
+        ["@variable"]            = { link = "GruvboxPurple" },
+        ["@variable.builtin"]    = { link = "GruvboxPurple" },
+        ["@variable.member"]     = { link = "GruvboxPurple" },
+        ["@variable.parameter"]  = { link = "GruvboxPurple" },
+      },
       dim_inactive = false,
       transparent_mode = true,
     })

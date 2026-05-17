@@ -45,3 +45,6 @@ vim.keymap.set("v", "<leader>w", "<C-y>,", { remap = true, desc = "Emmet Wrap" }
 vim.o.laststatus = 3
 vim.o.showmode = false
 vim.o.cmdheight = 0
+
+--go to definition
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Ir para a definição' })
