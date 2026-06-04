@@ -1,4 +1,5 @@
 vim.lsp.enable("pyright");
+vim.lsp.enable("ruff_lsp");
 -- vim.lsp.enable("jdtls");
 vim.lsp.enable("lua_ls");
 vim.lsp.enable("bashls");
@@ -6,7 +7,7 @@ vim.lsp.enable("vimls");
 vim.lsp.enable("html");
 vim.lsp.enable("cssls");
 vim.lsp.enable("ts_ls");
-vim.lsp.enable("hyprls");
+-- vim.lsp.enable("hyprls");
 vim.lsp.enable("clangd");
 vim.lsp.enable("taplo");
 vim.lsp.enable("lemminx");

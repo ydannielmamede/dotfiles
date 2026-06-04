@@ -13,10 +13,10 @@
 ------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "DP-3",
-    mode     = "1920x1080@180",
-    position = "auto",
-    scale    = "auto",
+	output = "DP-3",
+	mode = "1920x1080@180",
+	position = "auto",
+	scale = "auto",
 })
 ---------------------
 ---- MY PROGRAMS ----
@@ -91,7 +91,7 @@ hl.config({
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+			active_border = { colors = { "rgb(98971a)", "rgb(d79921)" }, angle = 45 },
 			inactive_border = "rgba(595959aa)",
 		},
 
@@ -105,11 +105,11 @@ hl.config({
 	},
 	scrolling = {
 
-		column_width = 0.5,
+		column_width = 0.66,
 		fullscreen_on_one_column = false,
 		follow_focus = true,
 
-		explicit_column_widths = 0.5,
+		explicit_column_widths = 0.66,
 		focus_fit_method = 0,
 	},
 
@@ -272,8 +272,7 @@ hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(terminal .. " -e nvim +'lua require(\
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.local/bin/toggle-layout.sh"))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper-wofi.sh"))
-hl.bind(mainMod .. "+ C", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call darkMode toggle"))
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call darkMode toggle"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(terminal .. " -e openclaude"))
 
 -- Layout e Janelas

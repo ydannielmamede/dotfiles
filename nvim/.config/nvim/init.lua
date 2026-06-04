@@ -19,3 +19,12 @@ vim.opt.autochdir = true
 --snippets vs-code
 require("luasnip.loaders.from_vscode").lazy_load()
 
+
+
+-- adiciona no final do init.lua (carregar treesitter em arquivo python)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python" },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
