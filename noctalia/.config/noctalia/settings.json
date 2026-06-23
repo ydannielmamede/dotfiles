@@ -25,7 +25,7 @@
         "showIconBackground": true,
         "sortByMostUsed": true,
         "terminalCommand": "kitty -e",
-        "viewMode": "list"
+        "viewMode": "grid"
     },
     "audio": {
         "mprisBlacklist": [
@@ -43,7 +43,7 @@
         "autoHideDelay": 500,
         "autoShowDelay": 150,
         "backgroundOpacity": 1,
-        "barType": "floating",
+        "barType": "simple",
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
         "contentPadding": 2,
@@ -55,7 +55,7 @@
         "frameThickness": 8,
         "hideOnOverview": false,
         "marginHorizontal": 4,
-        "marginVertical": 4,
+        "marginVertical": 3,
         "middleClickAction": "none",
         "middleClickCommand": "",
         "middleClickFollowMouse": false,
@@ -86,15 +86,21 @@
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": true
+                },
+                {
+                    "defaultSettings": {
+                        "iconColor": "none"
+                    },
+                    "id": "plugin:color-scheme-creator"
                 }
             ],
             "left": [
                 {
                     "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "tertiary",
+                    "colorizeSystemIcon": "primary",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
-                    "enableColorization": true,
+                    "enableColorization": false,
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": true
@@ -104,7 +110,7 @@
                     "colorizeIcons": false,
                     "emptyColor": "none",
                     "enableScrollWheel": true,
-                    "focusedColor": "tertiary",
+                    "focusedColor": "primary",
                     "followFocusedScreen": true,
                     "fontWeight": "bold",
                     "groupedBorderOpacity": 1,
@@ -112,7 +118,7 @@
                     "iconScale": 0.8,
                     "id": "Workspace",
                     "labelMode": "index",
-                    "occupiedColor": "primary",
+                    "occupiedColor": "tertiary",
                     "pillSize": 0.6,
                     "showApplications": true,
                     "showApplicationsHover": false,
@@ -132,7 +138,7 @@
                     "showArtistFirst": true,
                     "showProgressRing": true,
                     "showVisualizer": false,
-                    "textColor": "secondary",
+                    "textColor": "tertiary",
                     "useFixedWidth": true,
                     "visualizerType": "linear"
                 }
@@ -217,9 +223,9 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "gruv-dandan",
+        "predefinedScheme": "gruv-yellow",
         "schedulingMode": "off",
-        "syncGsettings": true,
+        "syncGsettings": false,
         "useWallpaperColors": false
     },
     "controlCenter": {
@@ -415,7 +421,7 @@
                 "Up"
             ]
         },
-        "language": "",
+        "language": "pt",
         "lockOnSuspend": true,
         "lockScreenAnimations": true,
         "lockScreenBlur": 0,
@@ -649,10 +655,6 @@
         "activeTemplates": [
             {
                 "enabled": true,
-                "id": "kitty"
-            },
-            {
-                "enabled": true,
                 "id": "hyprland"
             },
             {
@@ -665,15 +667,7 @@
             },
             {
                 "enabled": true,
-                "id": "cava"
-            },
-            {
-                "enabled": true,
                 "id": "niri"
-            },
-            {
-                "enabled": true,
-                "id": "gtk"
             },
             {
                 "enabled": true,
@@ -685,19 +679,19 @@
             },
             {
                 "enabled": true,
-                "id": "pywalfox"
-            },
-            {
-                "enabled": true,
-                "id": "steam"
-            },
-            {
-                "enabled": true,
-                "id": "discord"
-            },
-            {
-                "enabled": true,
                 "id": "starship"
+            },
+            {
+                "enabled": true,
+                "id": "kitty"
+            },
+            {
+                "enabled": true,
+                "id": "ghostty"
+            },
+            {
+                "enabled": true,
+                "id": "gtk"
             }
         ],
         "enableUserTheming": false
@@ -705,7 +699,7 @@
     "ui": {
         "boxBorderEnabled": true,
         "fontDefault": "MartianMono Nerd Font Propo",
-        "fontDefaultScale": 0.88,
+        "fontDefaultScale": 0.89,
         "fontFixed": "MartianMono NF",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.88,
@@ -752,23 +746,163 @@
             },
             {
                 "appearance": "dark",
-                "colorScheme": "gruv-dandan",
+                "colorScheme": "gruv-yellow",
                 "darkMode": true,
                 "generationMethod": "vibrant",
                 "paletteColors": [
-                    "#b8bb26",
                     "#fabd2f",
+                    "#b8bb26",
                     "#83a598",
                     "#fb4934"
                 ],
                 "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/photography/maciek-sulkowski-KvXQBeoolwU.jpg",
                 "useWallpaperColors": false
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "dracula_yellow",
+                "darkMode": false,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#8c831d",
+                    "#ff1399",
+                    "#0398b9",
+                    "#ff5555"
+                ],
+                "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/photography/chris-barbalis-rjwU7yqACkY.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "SynthWave 84",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#ff7edb",
+                    "#f97e72",
+                    "#03edf9",
+                    "#fe4450"
+                ],
+                "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/synthwave.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Dracula",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#bd93f9",
+                    "#ff79c6",
+                    "#8be9fd",
+                    "#ff5555"
+                ],
+                "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/dracula-mnt-282a36.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "dracula_yellow",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#f1fa8c",
+                    "#ff79c6",
+                    "#8be9fd",
+                    "#ff5555"
+                ],
+                "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/dracula-soft-waves-6272a4.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "SynthWave 84",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#ff7edb",
+                    "#f97e72",
+                    "#03edf9",
+                    "#fe4450"
+                ],
+                "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/arch.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Catppuccin Lavender",
+                "darkMode": false,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#1e66f5",
+                    "#ea76cb",
+                    "#8839ef",
+                    "#d20f39"
+                ],
+                "path": "/home/dannielmamede/walls-catppuccin-mocha/sakura-trees-over-river.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "gruv-yellow",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#fabd2f",
+                    "#b8bb26",
+                    "#83a598",
+                    "#fb4934"
+                ],
+                "path": "/home/dannielmamede/walls-catppuccin-mocha/clouds.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "Catppuccin Lavender",
+                "darkMode": false,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#1e66f5",
+                    "#ea76cb",
+                    "#8839ef",
+                    "#d20f39"
+                ],
+                "path": "/home/dannielmamede/walls-catppuccin-mocha/corals-fish-underwater.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "gruv-yellow",
+                "darkMode": false,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#d79921",
+                    "#98971a",
+                    "#458588",
+                    "#cc241d"
+                ],
+                "path": "/home/dannielmamede/walls-catppuccin-mocha/voyager-6.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "gruv-blue",
+                "darkMode": false,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#458588",
+                    "#98971a",
+                    "#d79921",
+                    "#cc241d"
+                ],
+                "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/photography/Pages.png",
+                "useWallpaperColors": false
             }
         ],
         "fillColor": "#000000",
         "fillMode": "stretch",
-        "hideWallpaperFilenames": true,
-        "linkLightAndDarkWallpapers": true,
+        "hideWallpaperFilenames": false,
+        "linkLightAndDarkWallpapers": false,
         "monitorDirectories": [
             {
                 "directory": "/home/dannielmamede/tokyonight-wallpapers",
@@ -784,8 +918,8 @@
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": true,
-        "solidColor": "#282c34",
-        "sortOrder": "random",
+        "solidColor": "#5a5e77",
+        "sortOrder": "date_asc",
         "transitionDuration": 500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [

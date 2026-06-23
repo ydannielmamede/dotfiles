@@ -38,6 +38,15 @@ local menu = "qs -c noctalia-shell ipc call launcher toggle"
 --
 hl.on("hyprland.start", function()
 	-- hl.exec_cmd(terminal)
+	hl.exec_cmd(
+		"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE DBUS_SESSION_BUS_ADDRESS"
+	)
+	hl.exec_cmd(
+		"systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE DBUS_SESSION_BUS_ADDRESS"
+	)
+	hl.exec_cmd(
+		"systemd-run --user --unit=hyprland-session --property=Type=oneshot --property=RemainAfterExit=yes --property=Wants=graphical-session.target --property=Before=graphical-session.target /usr/bin/true"
+	)
 	hl.exec_cmd("nm-applet")
 	hl.exec_cmd("qs -c noctalia-shell")
 	hl.exec_cmd("sshfs dannielmamede@192.168.0.81:/home/dannielmamede/ rasp/")
@@ -85,13 +94,13 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 5,
-		gaps_out = 5,
+		gaps_in = 3,
+		gaps_out = 15,
 
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgb(98971a)", "rgb(d79921)" }, angle = 45 },
+			active_border = "rgb(83a598)",
 			inactive_border = "rgba(595959aa)",
 		},
 
@@ -114,7 +123,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 5,
+		rounding = 10,
 		rounding_power = 5,
 
 		-- Change transparency of focused and unfocused windows
@@ -130,7 +139,7 @@ hl.config({
 
 		blur = {
 			enabled = true,
-			size = 4,
+			size = 2,
 			passes = 3,
 			vibrancy = 0.1696,
 		},

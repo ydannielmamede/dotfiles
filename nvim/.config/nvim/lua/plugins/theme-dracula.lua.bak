@@ -1,0 +1,84 @@
+return {
+	"Mofiqul/dracula.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		local overrides = {
+			Comment = { fg = "#6272A4", italic = true },
+
+			-- Variáveis em cyan
+			["@variable"] = { fg = "#8BE9FD" },
+			["@variable.builtin"] = { fg = "#8BE9FD" },
+			["@variable.member"] = { fg = "#8BE9FD" },
+			["@variable.parameter"] = { fg = "#8BE9FD" },
+			["@variable.field"] = { fg = "#8BE9FD" },
+
+			-- Módulos em laranja
+			["@module"] = { fg = "#FFB86C" },
+			["@module.builtin"] = { fg = "#FFB86C" },
+			["@module.import"] = { fg = "#FFB86C" },
+
+			-- Classes e Tipos em rosa
+			["@type"] = { fg = "#FF79C6" },
+			["@type.definition"] = { fg = "#FF79C6" },
+			["@type.builtin"] = { fg = "#FF79C6" },
+			["@class"] = { fg = "#FF79C6" },
+			["@constructor"] = { fg = "#FF79C6" },
+
+			-- Constantes roxas e strings verdes
+			["@constant"] = { fg = "#BD93F9" },
+			["@constant.builtin"] = { fg = "#BD93F9" },
+			["@number"] = { fg = "#BD93F9" },
+			["@boolean"] = { fg = "#BD93F9" },
+			["@string"] = { fg = "#50FA7B" },
+
+			-- Funções em amarelo
+			["@function"] = { fg = "#F1FA8C" },
+			["@function.builtin"] = { fg = "#F1FA8C" },
+			["@function.call"] = { fg = "#F1FA8C" },
+			["@function.method"] = { fg = "#F1FA8C" },
+			["@function.method.call"] = { fg = "#F1FA8C" },
+
+			-- Keywords, operadores e pontuação
+			["@keyword"] = { fg = "#FF5555" },
+			["@keyword.conditional"] = { fg = "#FF5555" },
+			["@keyword.coroutine"] = { fg = "#FF5555" },
+			["@keyword.debug"] = { fg = "#FF5555" },
+			["@keyword.directive"] = { fg = "#FF5555" },
+			["@keyword.directive.define"] = { fg = "#FF5555" },
+			["@keyword.exception"] = { fg = "#FF5555" },
+			["@keyword.function"] = { fg = "#FF5555" },
+			["@keyword.import"] = { fg = "#FF5555" },
+			["@keyword.operator"] = { fg = "#FF5555" },
+			["@keyword.repeat"] = { fg = "#FF5555" },
+			["@keyword.return"] = { fg = "#FF5555" },
+			["@keyword.storage"] = { fg = "#FF5555" },
+			["@operator"] = { fg = "#FF5555" },
+			["@punctuation.delimiter"] = { fg = "#F8F8F2" },
+			["@punctuation.bracket"] = { fg = "#F8F8F2" },
+			["@punctuation.special"] = { fg = "#F8F8F2" },
+
+			-- Destaque do Illuminate
+			IlluminatedWordRead = { fg = "#F8F8F2", bg = "#44475A" },
+			IlluminatedWordWrite = { fg = "#F8F8F2", bg = "#44475A" },
+		}
+
+		local function apply_overrides()
+			for group, opts in pairs(overrides) do
+				vim.api.nvim_set_hl(0, group, opts)
+			end
+		end
+
+		require("dracula").setup({
+			transparent_bg = true,
+			italic_comment = true,
+		})
+		vim.cmd("colorscheme dracula")
+		apply_overrides()
+
+		vim.api.nvim_create_autocmd("ColorScheme", {
+			pattern = "dracula",
+			callback = apply_overrides,
+		})
+	end,
+}

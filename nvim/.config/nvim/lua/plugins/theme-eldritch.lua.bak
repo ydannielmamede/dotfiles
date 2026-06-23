@@ -1,0 +1,20 @@
+return {
+  {
+    "eldritch-theme/eldritch.nvim",
+    lazy = false,    -- Carrega o tema imediatamente
+    priority = 1000, -- Garante que seja o primeiro a carregar
+    opts = {
+      -- Suas configurações aqui
+      transparent = false,
+      terminal_colors = true,
+      styles = {
+        sidebars = "dark",
+        floats = "dark",
+      },
+    },
+    config = function(_, opts)
+      require("eldritch").setup(opts)
+      vim.cmd.colorscheme("eldritch")
+    end,
+  },
+}

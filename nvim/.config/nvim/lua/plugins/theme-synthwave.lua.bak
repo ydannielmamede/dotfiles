@@ -1,0 +1,114 @@
+-- Paleta oficial do SynthWave '84 (robb0wen/synthwave-vscode)
+-- Extraída do tokenColors do tema original
+--
+-- #ff7edb   magenta/pink   → variáveis, módulos
+-- #fede5d   amarelo        → keywords, storage, operadores
+-- #36f9f6   ciano elétrico → funções, escapes, tags
+-- #72f1b8   verde menta    → strings, HTML tags, interfaces
+-- #f97e72   salmão/coral   → constantes, números, regex
+-- #fe4450   vermelho neon  → entities, language vars, erros
+-- #ff8b39   laranja        → strings quoted (atenção: diferente do verde!)
+-- #848bbd   roxo acinzentado → comentários
+-- #2EE2FA   ciano claro    → numerics JS/Dart, bold/italic MD
+-- #b6b1b1   cinza          → pontuação neutra
+-- #ffffff   branco         → texto base
+
+return {
+  "samharju/synthweave.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    local synthweave = require("synthweave")
+
+    synthweave.setup({
+      transparent = true,
+
+      overrides = {
+        -- ── Comentários ────────────────────────────────────────────
+        Comment = { fg = "#848bbd", italic = true },
+
+        -- ── Keywords / storage / operadores em amarelo ──────────────
+        -- Fonte: "Keyword", "Control keyword", "Operator", "Storage"
+        ["@keyword"] = { fg = "#fede5d" },
+        ["@keyword.function"] = { fg = "#fede5d" },
+        ["@keyword.return"] = { fg = "#fede5d" },
+        ["@keyword.operator"] = { fg = "#fede5d" },
+        ["@keyword.import"] = { fg = "#fede5d" },
+        ["@keyword.conditional"] = { fg = "#fede5d" },
+        ["@keyword.repeat"] = { fg = "#fede5d" },
+        ["@keyword.exception"] = { fg = "#fede5d" },
+        ["@operator"] = { fg = "#fede5d" },
+        ["@storageclass"] = { fg = "#fede5d" },
+
+        -- ── Variáveis em magenta ────────────────────────────────────
+        -- Fonte: "Variable" → #ff7edb
+        ["@variable"] = { fg = "#ff7edb" },
+        ["@variable.builtin"] = { fg = "#fe4450", bold = true }, -- "Language variable" → #fe4450 bold
+        ["@variable.member"] = { fg = "#ff7edb" },
+        ["@variable.parameter"] = { fg = "#ff7edb", italic = true }, -- "Parameter" → italic
+        ["@variable.field"] = { fg = "#ff7edb" },
+
+        -- ── Módulos/imports em verde ────────────────────────────────
+        -- Fonte: "JS Export" (import/export) → #72f1b8
+        ["@module"] = { fg = "#72f1b8" },
+        ["@module.builtin"] = { fg = "#72f1b8" },
+        ["@module.import"] = { fg = "#72f1b8" },
+
+        -- ── Tipos e Classes em vermelho neon ────────────────────────
+        -- Fonte: "Class" / "Entity" → #fe4450
+        ["@type"] = { fg = "#fe4450" },
+        ["@type.definition"] = { fg = "#fe4450" },
+        ["@type.builtin"] = { fg = "#fe4450" },
+        ["@class"] = { fg = "#fe4450" },
+        ["@constructor"] = { fg = "#36f9f6" }, -- "Function" → #36f9f6
+
+        -- ── Constantes em coral/salmão ──────────────────────────────
+        -- Fonte: "Constant", "Number", "Language constant" → #f97e72
+        ["@constant"] = { fg = "#f97e72" },
+        ["@constant.builtin"] = { fg = "#f97e72" },
+        ["@number"] = { fg = "#f97e72" },
+        ["@number.float"] = { fg = "#f97e72" },
+        ["@boolean"] = { fg = "#f97e72" },
+
+        -- ── Strings em verde menta ─────────────────────────────────
+        ["@string"] = { fg = "#72f1b8" },
+        ["@string.escape"] = { fg = "#36f9f6" }, -- "Character escape" → #36f9f6
+        ["@string.regexp"] = { fg = "#f97e72" }, -- "Regex" → #f97e72
+
+        -- ── Funções em ciano elétrico ───────────────────────────────
+        -- Fonte: "Function", "Support function" → #36f9f6
+        ["@function"] = { fg = "#36f9f6" },
+        ["@function.builtin"] = { fg = "#36f9f6" },
+        ["@function.call"] = { fg = "#36f9f6" },
+        ["@function.method"] = { fg = "#36f9f6" },
+        ["@function.method.call"] = { fg = "#36f9f6" },
+
+        -- ── Tags HTML/XML ───────────────────────────────────────────
+        -- Fonte: "HTML or XML tag" → #72f1b8
+        ["@tag"] = { fg = "#72f1b8" },
+        ["@tag.attribute"] = { fg = "#fede5d", italic = true },
+        ["@tag.delimiter"] = { fg = "#36f9f6" },
+
+        -- ── Propriedades de objeto ──────────────────────────────────
+        -- Fonte: "Object literal key / property" → #ff7edb
+        ["@property"] = { fg = "#ff7edb" },
+
+        -- ── Punctuation neutra ──────────────────────────────────────
+        ["@punctuation.delimiter"] = { fg = "#b6b1b1" },
+        ["@punctuation.bracket"] = { fg = "#b6b1b1" },
+
+        -- ── Números de linha ────────────────────────────────────────
+        LineNr = { fg = "#848bbd" },
+        LineNrAbove = { fg = "#848bbd" },
+        LineNrBelow = { fg = "#848bbd" },
+
+        -- ── Illuminate ──────────────────────────────────────────────
+        -- bg baseado em "editor.wordHighlightBackground" → #34294f88
+        IlluminatedWordRead = { fg = "#ffffff", bg = "#34294f" },
+        IlluminatedWordWrite = { fg = "#ffffff", bg = "#34294f" },
+      },
+    })
+
+    synthweave.load()
+  end,
+}
