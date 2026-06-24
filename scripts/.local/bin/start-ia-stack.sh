@@ -3,7 +3,8 @@ set -euo pipefail
 
 WORKDIR=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
 LOGDIR="${TMPDIR:-/tmp}/ia-stack"
-mkdir -p "$LOGDIR"
+SLOTDIR="/home/dannielmamede/.cache/ia-stack/slots"
+mkdir -p "$LOGDIR" "$SLOTDIR"
 
 cleanup() {
   jobs -pr | xargs -r kill
@@ -35,9 +36,16 @@ if ! port_open 1111; then
     --jinja \
     --host 127.0.0.1 \
     --port 1111 \
-    --ctx-size 8192 \
+    --ctx-size 10000 \
     --n-gpu-layers 99 \
+    --parallel 1 \
     --ui-mcp-proxy \
+    --mlock \
+    --cache-prompt \
+    --cache-reuse 256 \
+    --cache-ram 10240 \
+    --cache-idle-slots \
+    --slot-save-path "$SLOTDIR" \
     >"$LOGDIR/llama-server.log" 2>&1 &
 fi
 

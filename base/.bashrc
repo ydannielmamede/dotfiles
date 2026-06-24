@@ -389,3 +389,11 @@ source ~/.llama-completion.bash
 source ~/.llama-completion.bash
 source ~/.llama-completion.bash
 source ~/.llama-completion.bash
+source ~/.llama-completion.bash
+source ~/.llama-completion.bash
+source ~/.llama-completion.bash
+source ~/.llama-completion.bash
+source ~/.llama-completion.bash
+source ~/.llama-completion.bash
+source ~/.llama-completion.bash
+source ~/.llama-completion.bash
