@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+exec mcphost \
+    --config "${MCPHOST_CONFIG:-$HOME/.mcp.json}" \
+    --model "openai:${MCPHOST_MODEL:-local}" \
+    --provider-url "${MCPHOST_PROVIDER_URL:-http://127.0.0.1:8085/v1}" \
+    --provider-api-key "${MCPHOST_API_KEY:-sk-local}" \
+    "$@"
