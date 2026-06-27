@@ -218,7 +218,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": true,
+        "darkMode": false,
         "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -303,11 +303,11 @@
                         "format": "HH:mm\\nd MMMM yyyy",
                         "id": "Clock",
                         "roundedCorners": true,
-                        "scale": 1.94018075371195,
+                        "scale": 1.9663994125458952,
                         "showBackground": true,
                         "useCustomFont": true,
                         "x": 20,
-                        "y": 100
+                        "y": 80
                     },
                     {
                         "colorName": "tertiary",
@@ -328,7 +328,7 @@
                         "scale": 0.9982858849299312,
                         "showBackground": true,
                         "x": 20,
-                        "y": 680
+                        "y": 600
                     },
                     {
                         "defaultSettings": {
@@ -339,7 +339,7 @@
                         "scale": 1.1320754716981132,
                         "showBackground": true,
                         "x": 20,
-                        "y": 320
+                        "y": 260
                     }
                 ]
             }

@@ -66,7 +66,7 @@ LLAMA_STARTED=false
 if ! port_open 1111; then
   LLAMA_STARTED=true
   llama-server \
-    -m /home/dannielmamede/IA/models/qwen2.5-coder-3b-instruct-q4_k_m.gguf \
+    -m /home/dannielmamede/IA/models/Qwen3-8B-Q4_K_M.gguf \
     --jinja \
     --host 127.0.0.1 \
     --port 1111 \
