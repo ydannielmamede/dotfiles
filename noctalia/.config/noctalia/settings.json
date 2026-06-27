@@ -79,7 +79,7 @@
         "widgets": {
             "center": [
                 {
-                    "clockColor": "primary",
+                    "clockColor": "tertiary",
                     "customFont": "MartianMono NFM",
                     "formatHorizontal": "dddd, d MMMM HH:mm:ss",
                     "formatVertical": "HH mm - dd MM",
@@ -97,10 +97,10 @@
             "left": [
                 {
                     "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "primary",
+                    "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
                     "customIconPath": "",
-                    "enableColorization": false,
+                    "enableColorization": true,
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": true
@@ -138,7 +138,7 @@
                     "showArtistFirst": true,
                     "showProgressRing": true,
                     "showVisualizer": false,
-                    "textColor": "tertiary",
+                    "textColor": "secondary",
                     "useFixedWidth": true,
                     "visualizerType": "linear"
                 }
@@ -162,7 +162,7 @@
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
                     "showSwapUsage": false,
-                    "textColor": "tertiary",
+                    "textColor": "secondary",
                     "useMonospaceFont": true,
                     "usePadding": false
                 },
@@ -171,14 +171,14 @@
                     "iconColor": "primary",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
-                    "textColor": "tertiary"
+                    "textColor": "secondary"
                 },
                 {
                     "applyToAllMonitors": false,
                     "displayMode": "alwaysShow",
                     "iconColor": "primary",
                     "id": "Brightness",
-                    "textColor": "tertiary"
+                    "textColor": "secondary"
                 },
                 {
                     "blacklist": [
@@ -223,7 +223,7 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "gruv-yellow",
+        "predefinedScheme": "Catppuccin Lavender",
         "schedulingMode": "off",
         "syncGsettings": false,
         "useWallpaperColors": false
@@ -297,20 +297,20 @@
                 "name": "DP-3",
                 "widgets": [
                     {
-                        "clockColor": "primary",
-                        "clockStyle": "analog",
-                        "customFont": "",
+                        "clockColor": "tertiary",
+                        "clockStyle": "minimal",
+                        "customFont": "Adwaita Mono",
                         "format": "HH:mm\\nd MMMM yyyy",
                         "id": "Clock",
                         "roundedCorners": true,
-                        "scale": 1.9380156572626264,
+                        "scale": 1.94018075371195,
                         "showBackground": true,
                         "useCustomFont": true,
                         "x": 20,
-                        "y": 60
+                        "y": 100
                     },
                     {
-                        "colorName": "secondary",
+                        "colorName": "tertiary",
                         "height": 72,
                         "hideWhenIdle": true,
                         "id": "AudioVisualizer",
@@ -328,7 +328,7 @@
                         "scale": 0.9982858849299312,
                         "showBackground": true,
                         "x": 20,
-                        "y": 700
+                        "y": 680
                     },
                     {
                         "defaultSettings": {
@@ -339,7 +339,7 @@
                         "scale": 1.1320754716981132,
                         "showBackground": true,
                         "x": 20,
-                        "y": 360
+                        "y": 320
                     }
                 ]
             }
@@ -663,10 +663,6 @@
             },
             {
                 "enabled": true,
-                "id": "yazi"
-            },
-            {
-                "enabled": true,
                 "id": "niri"
             },
             {
@@ -712,7 +708,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/dannielmamede/gruvbox-wallpapers",
+        "directory": "/home/dannielmamede/walls-catppuccin-mocha",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
@@ -746,30 +742,16 @@
             },
             {
                 "appearance": "dark",
-                "colorScheme": "gruv-yellow",
+                "colorScheme": "gruv-blue",
                 "darkMode": true,
                 "generationMethod": "vibrant",
                 "paletteColors": [
-                    "#fabd2f",
-                    "#b8bb26",
                     "#83a598",
+                    "#b8bb26",
+                    "#fabd2f",
                     "#fb4934"
                 ],
                 "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/photography/maciek-sulkowski-KvXQBeoolwU.jpg",
-                "useWallpaperColors": false
-            },
-            {
-                "appearance": "light",
-                "colorScheme": "dracula_yellow",
-                "darkMode": false,
-                "generationMethod": "vibrant",
-                "paletteColors": [
-                    "#8c831d",
-                    "#ff1399",
-                    "#0398b9",
-                    "#ff5555"
-                ],
-                "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/photography/chris-barbalis-rjwU7yqACkY.jpg",
                 "useWallpaperColors": false
             },
             {
@@ -829,20 +811,6 @@
                 "useWallpaperColors": false
             },
             {
-                "appearance": "light",
-                "colorScheme": "Catppuccin Lavender",
-                "darkMode": false,
-                "generationMethod": "vibrant",
-                "paletteColors": [
-                    "#1e66f5",
-                    "#ea76cb",
-                    "#8839ef",
-                    "#d20f39"
-                ],
-                "path": "/home/dannielmamede/walls-catppuccin-mocha/sakura-trees-over-river.jpg",
-                "useWallpaperColors": false
-            },
-            {
                 "appearance": "dark",
                 "colorScheme": "gruv-yellow",
                 "darkMode": true,
@@ -897,6 +865,48 @@
                 ],
                 "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/photography/Pages.png",
                 "useWallpaperColors": false
+            },
+            {
+                "appearance": "light",
+                "colorScheme": "bluloco",
+                "darkMode": false,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#0099e1",
+                    "#23974a",
+                    "#c5a332",
+                    "#d52652"
+                ],
+                "path": "/home/dannielmamede/gruvbox-wallpapers/wallpapers/mix/Powerline.png",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "bluloco",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#3691ff",
+                    "#3fc56b",
+                    "#f9c859",
+                    "#fc2e51"
+                ],
+                "path": "/home/dannielmamede/aesthetic-wallpapers/images/abstract.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Catppuccin Lavender",
+                "darkMode": true,
+                "generationMethod": "vibrant",
+                "paletteColors": [
+                    "#b4befe",
+                    "#f5bde6",
+                    "#c6a0f6",
+                    "#f38ba8"
+                ],
+                "path": "/home/dannielmamede/wallpapers/6c8sflehi3991.jpg",
+                "useWallpaperColors": false
             }
         ],
         "fillColor": "#000000",
@@ -918,9 +928,9 @@
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": true,
-        "solidColor": "#5a5e77",
+        "solidColor": "#4c4f69",
         "sortOrder": "date_asc",
-        "transitionDuration": 500,
+        "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
             "pixelate"

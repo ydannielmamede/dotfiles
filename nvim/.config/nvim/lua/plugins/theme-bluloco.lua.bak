@@ -1,0 +1,84 @@
+return {
+  {
+    "uloco/bluloco.nvim",
+    lazy = false,
+    priority = 1000,
+    dependencies = { "rktjmp/lush.nvim" },
+    config = function()
+      require("bluloco").setup({
+        style = "auto", -- "auto" | "dark" | "light"
+        transparent = true,
+        italics = true,
+        terminal = true,
+        guicursor = true,
+        rainbow_headings = false,
+        float_window = "transparent",
+      })
+
+      vim.opt.termguicolors = true
+      vim.cmd.colorscheme("bluloco")
+
+      local is_light = vim.o.background == "light"
+      local colors = is_light
+          and {
+            comment = "#6A737D",
+            variable = "#A05A48",
+            module = "#ee5672",
+            type = "#D52753",
+            constant = "#823FF1",
+            string = "#C5A332",
+            method = "#23974A",
+            fg = "#383A42",
+            selection = "#d2ecff",
+          }
+        or {
+          comment = "#ff6d83",
+          variable = "#CE9887",
+          module = "#FF839B",
+          type = "#FF6480",
+          constant = "#9F7EFE",
+          string = "#F9C859",
+          method = "#3FC56B",
+          fg = "#ABB2BF",
+          selection = "#274670",
+        }
+
+      local overrides = {
+        Comment = { fg = colors.comment, italic = true },
+
+        ["@variable"] = { fg = colors.variable },
+        ["@variable.builtin"] = { fg = colors.variable },
+        ["@variable.member"] = { fg = colors.variable },
+        ["@variable.parameter"] = { fg = colors.variable },
+        ["@variable.field"] = { fg = colors.variable },
+
+        ["@module"] = { fg = colors.module },
+        ["@module.builtin"] = { fg = colors.module },
+        ["@module.import"] = { fg = colors.module },
+
+        ["@type"] = { fg = colors.type },
+        ["@type.definition"] = { fg = colors.type },
+        ["@type.builtin"] = { fg = colors.type },
+        ["@class"] = { fg = colors.type },
+        ["@constructor"] = { fg = colors.type },
+
+        ["@constant"] = { fg = colors.constant },
+        ["@constant.builtin"] = { fg = colors.constant },
+        ["@string"] = { fg = colors.string },
+
+        ["@function"] = { fg = colors.method },
+        ["@function.builtin"] = { fg = colors.method },
+        ["@function.call"] = { fg = colors.method },
+        ["@function.method"] = { fg = colors.method },
+        ["@function.method.call"] = { fg = colors.method },
+
+        IlluminatedWordRead = { fg = colors.fg, bg = colors.selection },
+        IlluminatedWordWrite = { fg = colors.fg, bg = colors.selection },
+      }
+
+      for group, opts in pairs(overrides) do
+        vim.api.nvim_set_hl(0, group, opts)
+      end
+    end,
+  },
+}

@@ -33,5 +33,32 @@ use = "yazi-rs/plugins:git"
 rev = "1db18bb"
 hash = "c8d30a70659f1b880407e61c564ab4e8"
 
-[flavor]
-deps = []
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "619fdc5"
+hash = "d4c7003ec6dc4efd5d3a050d5c2f2575"
+
+[[flavor.deps]]
+use = "Sh00Fly/gruvbox-light"
+rev = "607dad3"
+hash = "8b2a726a1395106f7f1aac1619864bac"
+
+[[flavor.deps]]
+use = "hankertrix/bluloco-yazi:bluloco-dark"
+rev = "1570591"
+hash = "785adf9c5354cae15136b414262d026f"
+
+[[flavor.deps]]
+use = "hankertrix/bluloco-yazi:bluloco-light"
+rev = "1570591"
+hash = "90ad21e654061aee83c24cbf38a6b865"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "4770a34"
+hash = "7dfe41c9c3d9be76da8a844263d0bbed"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "4770a34"
+hash = "b8f46853c27707115f25f3423a47bd38"
