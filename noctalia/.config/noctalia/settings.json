@@ -79,8 +79,8 @@
         "widgets": {
             "center": [
                 {
-                    "clockColor": "primary",
-                    "customFont": "MartianMono NFM",
+                    "clockColor": "tertiary",
+                    "customFont": "MartianMono NFM Cond",
                     "formatHorizontal": "dddd, d MMMM HH:mm:ss",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
@@ -154,7 +154,7 @@
                     "showCpuTemp": true,
                     "showCpuUsage": true,
                     "showDiskAvailable": true,
-                    "showDiskUsage": true,
+                    "showDiskUsage": false,
                     "showDiskUsageAsPercent": false,
                     "showGpuTemp": true,
                     "showLoadAverage": false,
@@ -162,7 +162,7 @@
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
                     "showSwapUsage": false,
-                    "textColor": "primary",
+                    "textColor": "none",
                     "useMonospaceFont": true,
                     "usePadding": false
                 },
@@ -171,14 +171,14 @@
                     "iconColor": "primary",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
-                    "textColor": "primary"
+                    "textColor": "none"
                 },
                 {
                     "applyToAllMonitors": false,
                     "displayMode": "alwaysShow",
                     "iconColor": "primary",
                     "id": "Brightness",
-                    "textColor": "primary"
+                    "textColor": "none"
                 },
                 {
                     "blacklist": [
@@ -218,7 +218,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": false,
+        "darkMode": true,
         "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -297,7 +297,7 @@
                 "name": "DP-3",
                 "widgets": [
                     {
-                        "clockColor": "tertiary",
+                        "clockColor": "primary",
                         "clockStyle": "minimal",
                         "customFont": "Adwaita Mono",
                         "format": "HH:mm\\nd MMMM yyyy",
@@ -308,19 +308,6 @@
                         "useCustomFont": true,
                         "x": 20,
                         "y": 80
-                    },
-                    {
-                        "colorName": "tertiary",
-                        "height": 72,
-                        "hideWhenIdle": true,
-                        "id": "AudioVisualizer",
-                        "roundedCorners": true,
-                        "scale": 0.9375,
-                        "showBackground": true,
-                        "visualizerType": "linear",
-                        "width": 320,
-                        "x": 20,
-                        "y": 1000
                     },
                     {
                         "id": "Weather",
@@ -340,6 +327,18 @@
                         "showBackground": true,
                         "x": 20,
                         "y": 260
+                    },
+                    {
+                        "colorName": "primary",
+                        "height": 30,
+                        "hideWhenIdle": true,
+                        "id": "AudioVisualizer",
+                        "roundedCorners": true,
+                        "showBackground": false,
+                        "visualizerType": "wave",
+                        "width": 1880,
+                        "x": 20,
+                        "y": 1060
                     }
                 ]
             }
@@ -382,8 +381,8 @@
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
-        "animationDisabled": true,
-        "animationSpeed": 2,
+        "animationDisabled": false,
+        "animationSpeed": 1.5,
         "autoStartAuth": false,
         "avatarImage": "/home/dannielmamede/.face/foto-perfil-200x200.jpg",
         "boxRadiusRatio": 1,
@@ -391,12 +390,12 @@
         "clockStyle": "custom",
         "compactLockScreen": false,
         "dimmerOpacity": 0.2,
-        "enableBlurBehind": true,
+        "enableBlurBehind": false,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": true,
-        "enableShadows": true,
+        "enableShadows": false,
         "forceBlackScreenCorners": true,
-        "iRadiusRatio": 1,
+        "iRadiusRatio": 1.5,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -430,7 +429,7 @@
         ],
         "lockScreenTint": 0,
         "passwordChars": false,
-        "radiusRatio": 1,
+        "radiusRatio": 1.5,
         "reverseScroll": false,
         "scaleRatio": 1.1,
         "screenRadiusRatio": 1,
@@ -693,18 +692,18 @@
         "enableUserTheming": false
     },
     "ui": {
-        "boxBorderEnabled": true,
+        "boxBorderEnabled": false,
         "fontDefault": "MartianMono Nerd Font Propo",
         "fontDefaultScale": 0.89,
         "fontFixed": "MartianMono NF",
         "fontFixedScale": 1,
-        "panelBackgroundOpacity": 0.88,
-        "panelsAttachedToBar": false,
+        "panelBackgroundOpacity": 0.93,
+        "panelsAttachedToBar": true,
         "scrollbarAlwaysVisible": true,
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": true,
         "tooltipsEnabled": true,
-        "translucentWidgets": true
+        "translucentWidgets": false
     },
     "wallpaper": {
         "automationEnabled": false,
@@ -812,14 +811,14 @@
             },
             {
                 "appearance": "dark",
-                "colorScheme": "gruv-yellow",
+                "colorScheme": "Catppuccin Lavender",
                 "darkMode": true,
                 "generationMethod": "vibrant",
                 "paletteColors": [
-                    "#fabd2f",
-                    "#b8bb26",
-                    "#83a598",
-                    "#fb4934"
+                    "#b4befe",
+                    "#f5bde6",
+                    "#c6a0f6",
+                    "#f38ba8"
                 ],
                 "path": "/home/dannielmamede/walls-catppuccin-mocha/clouds.png",
                 "useWallpaperColors": false
@@ -923,7 +922,7 @@
         "overviewBlur": 0.4,
         "overviewEnabled": false,
         "overviewTint": 0.6,
-        "panelPosition": "center",
+        "panelPosition": "follow_bar",
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
@@ -935,7 +934,7 @@
         "transitionType": [
             "pixelate"
         ],
-        "useOriginalImages": false,
+        "useOriginalImages": true,
         "useSolidColor": false,
         "useWallhaven": false,
         "viewMode": "recursive",
