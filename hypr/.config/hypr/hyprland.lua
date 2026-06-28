@@ -95,8 +95,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.config({
 	general = {
 		gaps_in = 2,
-		gaps_out = 30,
-
+    gaps_out = { top = 10, right = 0, bottom = 30, left = 0 },
 		border_size = 2,
 
 		col = {

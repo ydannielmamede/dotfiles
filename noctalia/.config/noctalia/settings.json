@@ -303,16 +303,16 @@
                         "format": "HH:mm\\nd MMMM yyyy",
                         "id": "Clock",
                         "roundedCorners": true,
-                        "scale": 1.9663994125458952,
+                        "scale": 1.8236348553022346,
                         "showBackground": true,
                         "useCustomFont": true,
                         "x": 20,
-                        "y": 80
+                        "y": 120
                     },
                     {
                         "id": "Weather",
                         "roundedCorners": true,
-                        "scale": 0.9982858849299312,
+                        "scale": 0.9286380324929592,
                         "showBackground": true,
                         "x": 20,
                         "y": 600
@@ -323,10 +323,10 @@
                             "showBackground": true
                         },
                         "id": "plugin:calendar-widget",
-                        "scale": 1.1320754716981132,
+                        "scale": 1.0566037735849056,
                         "showBackground": true,
                         "x": 20,
-                        "y": 260
+                        "y": 280
                     },
                     {
                         "colorName": "primary",
