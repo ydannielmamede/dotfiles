@@ -79,7 +79,7 @@
         "widgets": {
             "center": [
                 {
-                    "clockColor": "tertiary",
+                    "clockColor": "primary",
                     "customFont": "MartianMono NFM",
                     "formatHorizontal": "dddd, d MMMM HH:mm:ss",
                     "formatVertical": "HH mm - dd MM",
@@ -162,7 +162,7 @@
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
                     "showSwapUsage": false,
-                    "textColor": "secondary",
+                    "textColor": "primary",
                     "useMonospaceFont": true,
                     "usePadding": false
                 },
@@ -171,14 +171,14 @@
                     "iconColor": "primary",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
-                    "textColor": "secondary"
+                    "textColor": "primary"
                 },
                 {
                     "applyToAllMonitors": false,
                     "displayMode": "alwaysShow",
                     "iconColor": "primary",
                     "id": "Brightness",
-                    "textColor": "secondary"
+                    "textColor": "primary"
                 },
                 {
                     "blacklist": [
