@@ -95,7 +95,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.config({
 	general = {
 		gaps_in = 2,
-    gaps_out = { top = 10, right = 0, bottom = 30, left = 0 },
+		gaps_out = { top = 5, right = 0, bottom = 20, left = 0 },
 		border_size = 2,
 
 		col = {
@@ -138,7 +138,7 @@ hl.config({
 
 		blur = {
 			enabled = true,
-			size = 2,
+			size = 3,
 			passes = 3,
 			vibrancy = 0.1696,
 		},
