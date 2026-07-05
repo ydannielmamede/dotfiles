@@ -11,11 +11,11 @@ return {
 					vim.lsp.buf.code_action({ context = { only = { "source" } } })
 				end, { noremap = true, silent = true, buffer = bufnr })
 
-				local root_markers = { "pom.xml", "build.gradle", ".git" }
+				local root_markers = { "pom.xml", "mvnw", "gradlew", "settings.gradle", "settings.gradle.kts", "build.gradle", "build.gradle.kts", ".git" }
 				local root_dir = vim.fs.root(0, root_markers) or vim.fn.getcwd()
 				local workspace_dir = vim.fn.stdpath("data")
 					.. "/jdtls-workspaces/"
-					.. vim.fn.fnamemodify(root_dir, ":p:h:t")
+					.. vim.fn.fnamemodify(root_dir, ":p:t")
 
 				local mason_path = vim.fn.stdpath("data") .. "/mason"
 				local jdtls_path = mason_path .. "/packages/jdtls"
@@ -87,17 +87,29 @@ return {
 					jdtls.setup_dap({ hotcodereplace = "auto" })
 					jdtls.setup.add_commands()
 
+					local function main_class()
+						local file = vim.api.nvim_buf_get_name(bufnr)
+						local class = vim.fn.fnamemodify(file, ":t:r")
+						for _, line in ipairs(vim.api.nvim_buf_get_lines(bufnr, 0, 20, false)) do
+							local package = line:match("^%s*package%s+([%w_.]+)%s*;")
+							if package then
+								return package .. "." .. class
+							end
+						end
+						return class
+					end
+
 					-- Comandos buffer-locais para build/run
 					vim.api.nvim_buf_create_user_command(bufnr, "JavaBuild", function()
-						vim.fn.jobstart({
-							"bash",
-							"-lc",
-							'mkdir -p out && javac -d out $(git ls-files "src/**/*.java" 2>/dev/null || echo src/**/*.java)',
-						}, { stdout_buffered = true })
+						vim.fn.jobstart({ "bash", "-lc", "shopt -s globstar nullglob; mkdir -p out && javac -d out src/**/*.java *.java" }, {
+							cwd = root_dir,
+							stdout_buffered = true,
+							stderr_buffered = true,
+						})
 					end, {})
 
 					vim.api.nvim_buf_create_user_command(bufnr, "JavaRun", function()
-						vim.fn.jobstart({ "bash", "-lc", "java -cp out conversor.Main" }, { stdout_buffered = true })
+						vim.fn.jobstart({ "java", "-cp", "out", main_class() }, { cwd = root_dir, stdout_buffered = true })
 					end, {})
 				end
 
@@ -106,6 +118,23 @@ return {
 				local settings = {
 					java = {
 						format = { enabled = true },
+						completion = {
+							favoriteStaticMembers = {
+								"java.util.Objects.requireNonNull",
+								"org.junit.jupiter.api.Assertions.*",
+								"org.mockito.Mockito.*",
+							},
+							filteredTypes = {
+								"com.sun.*",
+								"io.micrometer.shaded.*",
+								"java.awt.*",
+								"jdk.*",
+								"sun.*",
+							},
+						},
+						configuration = {
+							updateBuildConfiguration = "interactive",
+						},
 						project = { referencedLibraries = {} },
 						sources = {
 							organizeImports = {
@@ -114,6 +143,9 @@ return {
 							},
 						},
 						contentProvider = { preferred = "fernflower" },
+						inlayHints = {
+							parameterNames = { enabled = "all" },
+						},
 					},
 				}
 
