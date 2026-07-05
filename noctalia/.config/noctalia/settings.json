@@ -6,7 +6,7 @@
         "clipboardWrapText": true,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
-        "density": "comfortable",
+        "density": "default",
         "enableClipPreview": true,
         "enableClipboardChips": true,
         "enableClipboardHistory": true,
@@ -19,7 +19,7 @@
         "overviewLayer": true,
         "pinnedApps": [
         ],
-        "position": "center",
+        "position": "bottom_center",
         "screenshotAnnotationTool": "",
         "showCategories": false,
         "showIconBackground": true,
@@ -31,9 +31,9 @@
         "mprisBlacklist": [
         ],
         "preferredPlayer": "",
-        "spectrumFrameRate": 60,
+        "spectrumFrameRate": 165,
         "spectrumMirrored": true,
-        "visualizerType": "linear",
+        "visualizerType": "wave",
         "volumeFeedback": true,
         "volumeFeedbackSoundFile": "",
         "volumeOverdrive": true,
@@ -45,7 +45,7 @@
         "backgroundOpacity": 1,
         "barType": "simple",
         "capsuleColorKey": "none",
-        "capsuleOpacity": 1,
+        "capsuleOpacity": 0.99,
         "contentPadding": 2,
         "density": "spacious",
         "displayMode": "always_visible",
@@ -90,7 +90,7 @@
                     "id": "plugin:pomodoro"
                 },
                 {
-                    "clockColor": "secondary",
+                    "clockColor": "error",
                     "customFont": "MartianMono NFM Cond",
                     "formatHorizontal": "dddd, d MMMM HH:mm:ss",
                     "formatVertical": "HH mm - dd MM",
@@ -139,7 +139,7 @@
                     "showArtistFirst": true,
                     "showProgressRing": true,
                     "showVisualizer": false,
-                    "textColor": "tertiary",
+                    "textColor": "error",
                     "useFixedWidth": true,
                     "visualizerType": "linear"
                 }
@@ -148,7 +148,7 @@
                 {
                     "compactMode": false,
                     "diskPath": "/",
-                    "iconColor": "primary",
+                    "iconColor": "error",
                     "id": "SystemMonitor",
                     "showCpuCores": false,
                     "showCpuFreq": false,
@@ -163,23 +163,23 @@
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
                     "showSwapUsage": false,
-                    "textColor": "secondary",
+                    "textColor": "primary",
                     "useMonospaceFont": true,
                     "usePadding": false
                 },
                 {
                     "displayMode": "alwaysShow",
-                    "iconColor": "primary",
+                    "iconColor": "error",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
-                    "textColor": "secondary"
+                    "textColor": "primary"
                 },
                 {
                     "applyToAllMonitors": false,
                     "displayMode": "alwaysShow",
-                    "iconColor": "primary",
+                    "iconColor": "error",
                     "id": "Brightness",
-                    "textColor": "secondary"
+                    "textColor": "primary"
                 },
                 {
                     "blacklist": [
@@ -219,7 +219,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": false,
+        "darkMode": true,
         "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -304,7 +304,7 @@
                         "format": "HH:mm\\nd MMMM yyyy",
                         "id": "Clock",
                         "roundedCorners": true,
-                        "scale": 1.8236348553022346,
+                        "scale": 1.956389883082857,
                         "showBackground": true,
                         "useCustomFont": true,
                         "x": 20,
@@ -313,10 +313,10 @@
                     {
                         "id": "Weather",
                         "roundedCorners": true,
-                        "scale": 0.9286380324929592,
+                        "scale": 1.0400745963921143,
                         "showBackground": true,
-                        "x": 20,
-                        "y": 540
+                        "x": 21,
+                        "y": 528
                     },
                     {
                         "defaultSettings": {
@@ -330,16 +330,17 @@
                         "y": 220
                     },
                     {
-                        "colorName": "secondary",
+                        "colorName": "none",
                         "height": 31,
                         "hideWhenIdle": true,
                         "id": "AudioVisualizer",
                         "roundedCorners": false,
+                        "scale": 1,
                         "showBackground": false,
                         "visualizerType": "wave",
-                        "width": 1240,
-                        "x": 335,
-                        "y": 1058
+                        "width": 1241,
+                        "x": 338,
+                        "y": 1055
                     }
                 ]
             }
@@ -394,7 +395,7 @@
         "enableBlurBehind": false,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": true,
-        "enableShadows": false,
+        "enableShadows": true,
         "forceBlackScreenCorners": true,
         "iRadiusRatio": 1.5,
         "keybinds": {
@@ -434,8 +435,8 @@
         "reverseScroll": false,
         "scaleRatio": 1.1,
         "screenRadiusRatio": 1,
-        "shadowDirection": "center",
-        "shadowOffsetX": 0,
+        "shadowDirection": "left",
+        "shadowOffsetX": -3,
         "shadowOffsetY": 0,
         "showChangelogOnStartup": true,
         "showHibernateOnLockScreen": false,
@@ -695,7 +696,7 @@
     "ui": {
         "boxBorderEnabled": false,
         "fontDefault": "MartianMono Nerd Font Propo",
-        "fontDefaultScale": 0.75,
+        "fontDefaultScale": 0.76,
         "fontFixed": "MartianMono NF",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 0.93,
@@ -812,13 +813,13 @@
             },
             {
                 "appearance": "dark",
-                "colorScheme": "Catppuccin Lavender",
+                "colorScheme": "Catppuccin",
                 "darkMode": true,
                 "generationMethod": "vibrant",
                 "paletteColors": [
-                    "#b4befe",
-                    "#f5bde6",
-                    "#c6a0f6",
+                    "#cba6f7",
+                    "#fab387",
+                    "#94e2d5",
                     "#f38ba8"
                 ],
                 "path": "/home/dannielmamede/walls-catppuccin-mocha/clouds.png",
@@ -826,14 +827,14 @@
             },
             {
                 "appearance": "light",
-                "colorScheme": "Catppuccin Lavender",
+                "colorScheme": "Catppuccin",
                 "darkMode": false,
                 "generationMethod": "vibrant",
                 "paletteColors": [
-                    "#1e66f5",
-                    "#ea76cb",
-                    "#8839ef",
-                    "#d20f39"
+                    "#cba6f7",
+                    "#fab387",
+                    "#94e2d5",
+                    "#f38ba8"
                 ],
                 "path": "/home/dannielmamede/walls-catppuccin-mocha/corals-fish-underwater.jpg",
                 "useWallpaperColors": false
