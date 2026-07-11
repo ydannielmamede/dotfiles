@@ -49,6 +49,7 @@ hl.on("hyprland.start", function()
 	)
 	hl.exec_cmd("nm-applet")
 	hl.exec_cmd("qs -c noctalia-shell")
+	-- hl.exec_cmd("noctalia --daemon")
 	hl.exec_cmd("sshfs dannielmamede@192.168.0.81:/home/dannielmamede/ rasp/")
 end)
 
@@ -95,7 +96,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.config({
 	general = {
 		gaps_in = 2,
-		gaps_out = { top = 5, right = 0, bottom = 20, left = 0 },
+		-- gaps_out = { top = 0, right = 0, bottom = 0, left = 0 },
 		border_size = 2,
 
 		col = {
@@ -405,3 +406,35 @@ hl.window_rule({
 	move = "20 monitor_h-120",
 	float = true,
 })
+-- Testar Noctalia v5 (mata o v4, sobe o v5)
+
+hl.bind(mainMod .. " + ALT + N", hl.dsp.exec_cmd("pkill -f 'qs -c noctalia-shell' && noctalia --daemon"))
+
+-- Voltar pro v4
+hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("pkill -f noctalia; qs -c noctalia-shell &"))
+local ipc = "noctalia msg"
+
+hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"))
+hl.bind(mainMod .. " + ALT + Escape", hl.dsp.exec_cmd(ipc .. " settings-toggle"))
+hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd(ipc .. " panel-toggle session"))
+hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(ipc .. " theme-mode-toggle"))
+hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd(ipc .. " panel-toggle wallpaper"))
+hl.bind(mainMod .. " + ALT + V", hl.dsp.exec_cmd(ipc .. " panel-toggle clipboard"))
+
+hl.window_rule({
+	match = { class = "dev.noctalia.Noctalia" },
+	float = true,
+	size = { 1080, 920 },
+})
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
+
+-- Ativa o blur para as superfícies do Noctalia
+os.execute('hyprctl keyword layerrule "blur, noctalia"')
+
+-- Ignora a transparência total para que o blur seja aplicado corretamente no fundo translúcido
+os.execute('hyprctl keyword layerrule "ignorealpha 0.2, noctalia"')
+
+-- (Opcional) Desabilita animações do Hyprland para não conflitar com as do Noctalia
+os.execute('hyprctl keyword layerrule "noanim, noctalia"')

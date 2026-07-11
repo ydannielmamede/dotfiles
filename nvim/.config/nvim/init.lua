@@ -17,7 +17,6 @@ require("bufferline").setup{}
 vim.opt.autochdir = true
 
 --snippets vs-code
-require("luasnip.loaders.from_vscode").lazy_load()
 
 
 

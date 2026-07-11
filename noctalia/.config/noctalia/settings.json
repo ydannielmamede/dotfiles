@@ -22,7 +22,7 @@
         "position": "bottom_center",
         "screenshotAnnotationTool": "",
         "showCategories": false,
-        "showIconBackground": true,
+        "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "kitty -e",
         "viewMode": "grid"
@@ -219,7 +219,7 @@
         ]
     },
     "colorSchemes": {
-        "darkMode": false,
+        "darkMode": true,
         "generationMethod": "vibrant",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
@@ -291,8 +291,8 @@
     },
     "desktopWidgets": {
         "enabled": true,
-        "gridSnap": false,
-        "gridSnapScale": false,
+        "gridSnap": true,
+        "gridSnapScale": true,
         "monitorWidgets": [
             {
                 "name": "DP-3",
@@ -308,15 +308,15 @@
                         "showBackground": true,
                         "useCustomFont": true,
                         "x": 20,
-                        "y": 60
+                        "y": 80
                     },
                     {
                         "id": "Weather",
                         "roundedCorners": true,
                         "scale": 1.0400745963921143,
                         "showBackground": true,
-                        "x": 21,
-                        "y": 528
+                        "x": 20,
+                        "y": 560
                     },
                     {
                         "defaultSettings": {
@@ -327,20 +327,7 @@
                         "scale": 1.0566037735849056,
                         "showBackground": true,
                         "x": 20,
-                        "y": 220
-                    },
-                    {
-                        "colorName": "none",
-                        "height": 31,
-                        "hideWhenIdle": true,
-                        "id": "AudioVisualizer",
-                        "roundedCorners": false,
-                        "scale": 1,
-                        "showBackground": false,
-                        "visualizerType": "wave",
-                        "width": 1241,
-                        "x": 338,
-                        "y": 1055
+                        "y": 240
                     }
                 ]
             }
@@ -384,7 +371,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1.5,
+        "animationSpeed": 1,
         "autoStartAuth": false,
         "avatarImage": "/home/dannielmamede/.face/foto-perfil-200x200.jpg",
         "boxRadiusRatio": 1,
@@ -395,9 +382,9 @@
         "enableBlurBehind": false,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": true,
-        "enableShadows": true,
+        "enableShadows": false,
         "forceBlackScreenCorners": true,
-        "iRadiusRatio": 1.5,
+        "iRadiusRatio": 1,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -431,9 +418,9 @@
         ],
         "lockScreenTint": 0.2,
         "passwordChars": false,
-        "radiusRatio": 1.5,
+        "radiusRatio": 1,
         "reverseScroll": false,
-        "scaleRatio": 1.1,
+        "scaleRatio": 1.05,
         "screenRadiusRatio": 1,
         "shadowDirection": "left",
         "shadowOffsetX": -3,
