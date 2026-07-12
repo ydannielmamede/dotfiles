@@ -304,7 +304,7 @@
                         "format": "HH:mm\\nd MMMM yyyy",
                         "id": "Clock",
                         "roundedCorners": true,
-                        "scale": 1.956389883082857,
+                        "scale": 1.9120994169953125,
                         "showBackground": true,
                         "useCustomFont": true,
                         "x": 20,
@@ -313,7 +313,7 @@
                     {
                         "id": "Weather",
                         "roundedCorners": true,
-                        "scale": 1.0400745963921143,
+                        "scale": 1.0907149325460377,
                         "showBackground": true,
                         "x": 20,
                         "y": 560
@@ -676,6 +676,10 @@
             {
                 "enabled": true,
                 "id": "gtk"
+            },
+            {
+                "enabled": true,
+                "id": "alacritty"
             }
         ],
         "enableUserTheming": false
