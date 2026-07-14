@@ -25,7 +25,8 @@ hl.monitor({
 -- Set programs that you use
 local terminal = "kitty"
 local fileManager = "nautilus"
-local menu = "qs -c noctalia-shell ipc call launcher toggle"
+local ipc = "noctalia msg"
+local menu = ipc .. " panel-toggle launcher"
 
 -------------------
 ---- AUTOSTART ----
@@ -48,8 +49,8 @@ hl.on("hyprland.start", function()
 		"systemd-run --user --unit=hyprland-session --property=Type=oneshot --property=RemainAfterExit=yes --property=Wants=graphical-session.target --property=Before=graphical-session.target /usr/bin/true"
 	)
 	hl.exec_cmd("nm-applet")
-	hl.exec_cmd("qs -c noctalia-shell")
-	-- hl.exec_cmd("noctalia --daemon")
+	-- hl.exec_cmd("qs -c noctalia-shell")
+	hl.exec_cmd("noctalia --daemon")
 	hl.exec_cmd("sshfs dannielmamede@192.168.0.81:/home/dannielmamede/ rasp/")
 end)
 
@@ -95,13 +96,13 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 2,
-		-- gaps_out = { top = 0, right = 0, bottom = 0, left = 0 },
-		border_size = 2,
+		gaps_in = 0,
+		gaps_out = { top = 10, right = 2, bottom = 2, left = 2 },
+		border_size = 3,
 
 		col = {
 			active_border = "rgb(b4befe)",
-			inactive_border = "rgba(595959aa)",
+			-- inactive_border = "rgba(595959aa)",
 		},
 
 		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -110,7 +111,7 @@ hl.config({
 		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
 		allow_tearing = false,
 
-		layout = "scrolling",
+		layout = "dwindle",
 	},
 	scrolling = {
 
@@ -138,7 +139,7 @@ hl.config({
 		},
 
 		blur = {
-			enabled = true,
+			enabled = false,
 			size = 3,
 			passes = 3,
 			vibrancy = 0.1696,
@@ -273,15 +274,15 @@ local mainMod = "SUPER" -- Define a tecla "Windows" como modificador principal
 
 -- Binds Gerais e Execuções
 hl.bind("F11", hl.dsp.window.fullscreen(0))
-hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call settings toggle"))
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(ipc .. " settings-toggle"))
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call sessionMenu toggle"))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(ipc .. " panel-toggle session"))
 hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(terminal .. " -e nvim +'lua require(\"fzf-lua\").files()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.local/bin/toggle-layout.sh"))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call darkMode toggle"))
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(ipc .. " theme-mode-toggle"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(terminal .. " -e openclaude"))
 
 -- Layout e Janelas
@@ -291,8 +292,8 @@ hl.bind(mainMod .. " + CTRL + H", hl.dsp.layout("colresize -0.1"))
 hl.bind(mainMod .. " + CTRL + L", hl.dsp.layout("colresize +0.1"))
 
 -- Utilitários (Wallpaper, Clipboard, Screenshot, Picker)
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call wallpaper toggle"))
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher clipboard"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(ipc .. " panel-toggle wallpaper"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(ipc .. " panel-toggle clipboard"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("hyprpicker"))
 
@@ -406,20 +407,6 @@ hl.window_rule({
 	move = "20 monitor_h-120",
 	float = true,
 })
--- Testar Noctalia v5 (mata o v4, sobe o v5)
-
-hl.bind(mainMod .. " + ALT + N", hl.dsp.exec_cmd("pkill -f 'qs -c noctalia-shell' && noctalia --daemon"))
-
--- Voltar pro v4
-hl.bind(mainMod .. " + ALT + M", hl.dsp.exec_cmd("pkill -f noctalia; qs -c noctalia-shell &"))
-local ipc = "noctalia msg"
-
-hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"))
-hl.bind(mainMod .. " + ALT + Escape", hl.dsp.exec_cmd(ipc .. " settings-toggle"))
-hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd(ipc .. " panel-toggle session"))
-hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(ipc .. " theme-mode-toggle"))
-hl.bind(mainMod .. " + ALT + W", hl.dsp.exec_cmd(ipc .. " panel-toggle wallpaper"))
-hl.bind(mainMod .. " + ALT + V", hl.dsp.exec_cmd(ipc .. " panel-toggle clipboard"))
 
 hl.window_rule({
 	match = { class = "dev.noctalia.Noctalia" },
@@ -427,14 +414,6 @@ hl.window_rule({
 	size = { 1080, 920 },
 })
 
+
 -- For Noctalia Color templates
 require("noctalia").apply_theme()
-
--- Ativa o blur para as superfícies do Noctalia
-os.execute('hyprctl keyword layerrule "blur, noctalia"')
-
--- Ignora a transparência total para que o blur seja aplicado corretamente no fundo translúcido
-os.execute('hyprctl keyword layerrule "ignorealpha 0.2, noctalia"')
-
--- (Opcional) Desabilita animações do Hyprland para não conflitar com as do Noctalia
-os.execute('hyprctl keyword layerrule "noanim, noctalia"')

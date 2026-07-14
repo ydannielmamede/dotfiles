@@ -1,0 +1,85 @@
+[general]
+import = ["~/.config/alacritty/themes/noctalia.toml"]
+
+# Configuração transcrita de kitty/.config/kitty/kitty.conf para Alacritty
+# Algumas opções do kitty não têm equivalente direto no Alacritty:
+# - cursor_trail, cursor_trail_decay, cursor_trail_start_threshold
+# - repaint_delay, input_delay, sync_to_monitor
+# - confirm_os_window_close
+
+[window]
+opacity = 0.7
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "MartianMono Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+family = "MartianMono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "MartianMono Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "MartianMono Nerd Font Mono"
+style = "Bold Italic"
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+
+[colors.primary]
+foreground = "#CDD6F4"
+background = "#1E1E2E"
+
+[colors.cursor]
+text = "#1E1E2E"
+cursor = "#F5E0DC"
+
+[colors.selection]
+text = "#1E1E2E"
+background = "#F5E0DC"
+
+[colors.normal]
+black = "#45475A"
+red = "#F38BA8"
+green = "#A6E3A1"
+yellow = "#F9E2AF"
+blue = "#89B4FA"
+magenta = "#F5C2E7"
+cyan = "#94E2D5"
+white = "#BAC2DE"
+
+[colors.bright]
+black = "#585B70"
+red = "#F38BA8"
+green = "#A6E3A1"
+yellow = "#F9E2AF"
+blue = "#89B4FA"
+magenta = "#F5C2E7"
+cyan = "#94E2D5"
+white = "#A6ADC8"
+
+[colors.footer_bar]
+foreground = "#CDD6F4"
+background = "#181825"
+
+[colors.search.matches]
+foreground = "#1E1E2E"
+background = "#F9E2AF"
+
+[colors.search.focused_match]
+foreground = "#1E1E2E"
+background = "#A6E3A1"
+
+[colors.hints.start]
+foreground = "#1E1E2E"
+background = "#F9E2AF"
+
+[colors.hints.end]
+foreground = "#1E1E2E"
+background = "#A6E3A1"
