@@ -9,6 +9,7 @@ import = ["~/.config/alacritty/themes/noctalia.toml"]
 
 [window]
 opacity = 0.7
+padding = { x = 5, y = 5 }
 
 [font]
 size = 14.0
