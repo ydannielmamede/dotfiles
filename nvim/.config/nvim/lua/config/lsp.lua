@@ -1,5 +1,5 @@
 vim.lsp.enable("pyright");
-vim.lsp.enable("ruff_lsp");
+vim.lsp.enable("ruff");
 -- vim.lsp.enable("jdtls");
 vim.lsp.enable("lua_ls");
 vim.lsp.enable("bashls");

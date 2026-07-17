@@ -3,10 +3,43 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
+      local matugen_theme = {
+        normal = {
+          a = "MatugenLualineNormalA",
+          b = "MatugenLualineNormalB",
+          c = "MatugenLualineNormalC",
+        },
+        insert = {
+          a = "MatugenLualineInsertA",
+          b = "MatugenLualineInsertB",
+          c = "MatugenLualineInsertC",
+        },
+        visual = {
+          a = "MatugenLualineVisualA",
+          b = "MatugenLualineVisualB",
+          c = "MatugenLualineVisualC",
+        },
+        replace = {
+          a = "MatugenLualineReplaceA",
+          b = "MatugenLualineReplaceB",
+          c = "MatugenLualineReplaceC",
+        },
+        command = {
+          a = "MatugenLualineCommandA",
+          b = "MatugenLualineCommandB",
+          c = "MatugenLualineCommandC",
+        },
+        inactive = {
+          a = "MatugenLualineInactiveA",
+          b = "MatugenLualineInactiveB",
+          c = "MatugenLualineInactiveC",
+        },
+      }
+
       require("lualine").setup({
         options = {
           icons_enabled = true,
-          theme = "auto",
+          theme = matugen_theme,
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
           disabled_filetypes = {

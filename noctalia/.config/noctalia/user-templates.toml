@@ -15,7 +15,7 @@
 #input_path = "/etc/xdg/quickshell/noctalia-shell/Assets/Templates/noctalia.json"
 #output_path = "/home/dannielmamede/.cache/noctalia/placeholder.json"
 [templates.nvim-base16]
-input_path = "~/.config/nvim/lua/matugen-template.lua"
+input_path = "~/.local/state/noctalia/community-templates/neovim/matugen-template.lua"
 output_path = "~/.config/nvim/lua/matugen.lua"
-post_hook = 'pkill -SIGUSR1 nvim'
+post_hook = "bash $HOME/.local/state/noctalia/community-templates/neovim/apply.sh"
 

@@ -1,0 +1,7 @@
+[catalog.eza]
+name = "eza"
+category = "misc"
+
+[templates.eza]
+input_path = "eza-colors.sh"
+output_path = "$XDG_CONFIG_HOME/eza/colors.sh"

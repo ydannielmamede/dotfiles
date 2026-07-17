@@ -11,12 +11,19 @@ alias grep='grep --color=auto'
 #PS1="\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;36m\]\w\[\e[0m\]\$ "
 # PS1="\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;34m\]\h \[\e[33m\]\w\[\e[0m\] \$ "
 
-#ssh-rasp
-alias rasp="ssh dannielmamede@192.168.0.81"
-
 #eza
-alias ls="eza --sort=type --icons"
-alias la="eza -la --icons"
+_eza_with_noctalia_colors() {
+  [ -f "$HOME/.config/eza/colors.sh" ] && . "$HOME/.config/eza/colors.sh"
+  command eza "$@"
+}
+
+ls() {
+  _eza_with_noctalia_colors --sort=type --icons "$@"
+}
+
+la() {
+  _eza_with_noctalia_colors -la --icons "$@"
+}
 
 #starship
 eval "$(starship init bash)"

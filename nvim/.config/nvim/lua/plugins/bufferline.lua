@@ -26,23 +26,60 @@ return {
 					{
 						filetype = "NvimTree",
 						text = "Explorer",
-						highlight = "Directory",
+						highlight = "MatugenBufferlineBufferSelected",
 						text_align = "left",
 					},
 				},
 			},
 			highlights = {
 				fill = {
-					guifg = { attribute = "fg", highlight = "Normal" },
-					guibg = { attribute = "bg", highlight = "StatusLineNC" },
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineFill" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineFill" },
 				},
 				background = {
-					guifg = { attribute = "fg", highlight = "Normal" },
-					guibg = { attribute = "bg", highlight = "StatusLine" },
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineBackground" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineBackground" },
 				},
 				buffer_selected = {
-					guifg = { attribute = "fg", highlight = "Normal" },
-					guibg = { attribute = "bg", highlight = "Normal" },
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineBufferSelected" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineBufferSelected" },
+					gui = "bold",
+				},
+				indicator_selected = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineIndicatorSelected" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineIndicatorSelected" },
+				},
+				separator = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineSeparator" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineSeparator" },
+				},
+				separator_selected = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineSeparatorSelected" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineSeparatorSelected" },
+				},
+				close_button = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineCloseButton" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineCloseButton" },
+				},
+				close_button_selected = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineCloseButtonSelected" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineCloseButtonSelected" },
+				},
+				modified = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineModified" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineModified" },
+				},
+				modified_selected = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineModifiedSelected" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineModifiedSelected" },
+				},
+				diagnostic = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineDiagnostic" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineDiagnostic" },
+				},
+				diagnostic_selected = {
+					guifg = { attribute = "fg", highlight = "MatugenBufferlineDiagnosticSelected" },
+					guibg = { attribute = "bg", highlight = "MatugenBufferlineDiagnosticSelected" },
 					gui = "bold",
 				},
 			},

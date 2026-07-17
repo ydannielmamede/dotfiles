@@ -96,9 +96,9 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 0,
-		gaps_out = { top = 1, right = 1, bottom = 1, left = 1 },
-		border_size = 2,
+		gaps_in = 5,
+		gaps_out = { top = 5, right = 5, bottom = 5, left = 5 },
+		border_size = 3,
 
 		col = {
 			active_border = "rgb(b4befe)",
@@ -139,7 +139,7 @@ hl.config({
 		},
 
 		blur = {
-			enabled = false,
+			enabled = true,
 			size = 3,
 			passes = 3,
 			vibrancy = 0.1696,

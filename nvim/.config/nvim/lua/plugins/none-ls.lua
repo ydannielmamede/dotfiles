@@ -10,6 +10,9 @@ return {
 			sources = {
 				null_ls.builtins.formatting.prettier, -- JS, TS, HTML, CSS
 				null_ls.builtins.formatting.black, -- Python
+				null_ls.builtins.formatting.djlint.with({
+					filetypes = { "htmldjango", "html", "jinja", "jinja.html" },
+				}), -- Django/Jinja templates
 				-- null_ls.builtins.formatting.clang_format, -- C/C++
 				null_ls.builtins.formatting.gofmt, -- Go
 				null_ls.builtins.formatting.stylua, -- Lua
