@@ -4,22 +4,22 @@ function M.setup()
   vim.g.colors_name = 'matugen'
 
   require('base16-colorscheme').setup({
-    base00 = '#101c2e',
-    base01 = '#1a2f4c',
-    base02 = '#172a44',
-    base03 = '#5f6874',
-    base04 = '#afb2b6',
+    base00 = '#12202b',
+    base01 = '#1e3548',
+    base02 = '#1b3040',
+    base03 = '#5f6b74',
+    base04 = '#afb3b6',
     base05 = '#f2f2f3',
     base06 = '#f2f2f3',
     base07 = '#f2f2f3',
-    base08 = '#c67088',
-    base09 = '#a166cc',
-    base0A = '#655cd6',
-    base0B = '#679ce4',
-    base0C = '#c696e9',
-    base0D = '#93b8ec',
-    base0E = '#9c96e9',
-    base0F = '#681c31',
+    base08 = '#fd4663',
+    base09 = '#9466cc',
+    base0A = '#5c62d6',
+    base0B = '#67abe4',
+    base0C = '#bb96e9',
+    base0D = '#93c3ec',
+    base0E = '#969ae9',
+    base0F = '#910017',
   })
 
   local hi = function(group, opts)
@@ -27,20 +27,20 @@ function M.setup()
   end
 
   local c = {
-    bg = '#101c2e',
-    bg_alt = '#1a2f4c',
-    bg_high = '#172a44',
+    bg = '#12202b',
+    bg_alt = '#1e3548',
+    bg_high = '#1b3040',
     fg = '#f2f2f3',
-    muted = '#afb2b6',
-    comment = '#5f6874',
-    primary = '#679ce4',
-    primary_dim = '#93b8ec',
-    secondary = '#655cd6',
-    secondary_dim = '#9c96e9',
-    tertiary = '#a166cc',
-    tertiary_dim = '#c696e9',
-    error = '#c67088',
-    error_container = '#681c31',
+    muted = '#afb3b6',
+    comment = '#5f6b74',
+    primary = '#67abe4',
+    primary_dim = '#93c3ec',
+    secondary = '#5c62d6',
+    secondary_dim = '#969ae9',
+    tertiary = '#9466cc',
+    tertiary_dim = '#bb96e9',
+    error = '#fd4663',
+    error_container = '#910017',
   }
 
   local function is_light(hex)

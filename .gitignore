@@ -3,3 +3,10 @@ kitty/.config/kitty/themes/
 niri/.config/niri/noctalia.kdl
 yazi/.config/yazi/flavors/noctalia.yazi/flavor.toml
 noctalia/.config/noctalia/colors.json
+
+# Local agent/session metadata
+.openclaude/
+**/.openclaude/
+
+# Noctalia generated cache files
+**/.noctalia-cache.json
