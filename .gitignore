@@ -4,6 +4,12 @@ niri/.config/niri/noctalia.kdl
 yazi/.config/yazi/flavors/noctalia.yazi/flavor.toml
 noctalia/.config/noctalia/colors.json
 
+# Generated theme outputs
+alacritty/.config/alacritty/themes/noctalia.toml
+hypr/.config/hypr/noctalia.lua
+nvim/.config/nvim/lua/matugen.lua
+yazi/.config/yazi/flavors/noctalia.yazi/tmtheme.xml
+
 # Local agent/session metadata
 .openclaude/
 **/.openclaude/
