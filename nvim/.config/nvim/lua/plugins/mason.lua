@@ -30,6 +30,7 @@ return {
         "ruff",
         "black",
         "djlint",
+        "django-template-lsp",
         "debugpy",
       },
       auto_update = false,
