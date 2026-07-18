@@ -176,6 +176,12 @@ rules = [
 
 # : Icons {{{
 
-# Icon definitions intentionally omitted so Yazi uses its built-in default icon colors.
+[icon]
+dirs = [
+	{ name = "*", text = "", fg = "{{colors.primary.default.hex}}" },
+]
+conds = [
+	{ if = "dir", text = "", fg = "{{colors.primary.default.hex}}" },
+]
 
 # : }}}
