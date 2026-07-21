@@ -16,7 +16,9 @@ return {
 				-- null_ls.builtins.formatting.clang_format, -- C/C++
 				null_ls.builtins.formatting.gofmt, -- Go
 				null_ls.builtins.formatting.stylua, -- Lua
+				null_ls.builtins.diagnostics.selene, -- Lua
 				null_ls.builtins.formatting.google_java_format, -- Java
+				null_ls.builtins.diagnostics.hadolint, -- Dockerfile
 			},
 		})
 

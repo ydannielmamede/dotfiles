@@ -19,7 +19,7 @@ return {
 			vim.g.db_ui_show_database_navigation = 1
 
 			-- Atalho para abrir a interface
-			vim.keymap.set("n", "<leader>db", ":DBUIToggle<CR>", { desc = "Toggle DBUI" })
+			vim.keymap.set("n", "<leader>m", ":DBUIToggle<CR>", { desc = "Toggle DBUI" })
 		end,
 
 		-- O 'config' antigo com autocmd para nvim-cmp foi removido

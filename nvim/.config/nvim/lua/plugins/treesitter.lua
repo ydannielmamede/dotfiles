@@ -1,4 +1,4 @@
-local languages = { "python", "html", "css", "javascript", "java" }
+local languages = { "python", "html", "css", "javascript", "java", "lua", "luadoc", "luap", "dockerfile", "yaml" }
 local html_like_filetypes = { "htmldjango", "jinja", "jinja.html" }
 
 return {
