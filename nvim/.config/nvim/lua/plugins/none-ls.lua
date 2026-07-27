@@ -6,6 +6,18 @@ return {
 	config = function()
 		local null_ls = require("null-ls")
 
+		null_ls.register({
+			name = "nginxfmt",
+			method = null_ls.methods.FORMATTING,
+			filetypes = { "nginx" },
+			generator = null_ls.formatter({
+				command = "nginxfmt",
+				args = { "$FILENAME" },
+				to_temp_file = true,
+				from_temp_file = true,
+			}),
+		})
+
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.prettier, -- JS, TS, HTML, CSS

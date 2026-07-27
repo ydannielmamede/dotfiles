@@ -38,7 +38,7 @@ local menu = ipc .. " panel-toggle launcher"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-	-- hl.exec_cmd(terminal)
+	hl.exec_cmd("syncthing")
 	hl.exec_cmd(
 		"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE DBUS_SESSION_BUS_ADDRESS"
 	)

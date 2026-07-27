@@ -38,6 +38,8 @@ return {
         "dockerfile-language-server",
         "docker-compose-language-service",
         "hadolint",
+        "nginx-language-server",
+        "nginx-config-formatter",
         "prettier",
       },
       auto_update = false,
