@@ -41,6 +41,8 @@ return {
         "nginx-language-server",
         "nginx-config-formatter",
         "prettier",
+        "clangd",
+        "arduino-language-server",
       },
       auto_update = false,
       run_on_start = true,

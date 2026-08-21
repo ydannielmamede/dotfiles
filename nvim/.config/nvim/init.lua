@@ -2,6 +2,7 @@ require("config.lazy")
 require("config.lsp")
 require("config.options")
 require("config.diagnostics")
+require("config.arduino")
 --usar clipboard do sistema operacional
 vim.opt.clipboard = "unnamedplus"
 

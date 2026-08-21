@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Otimização: Evita fork desnecessário chamando comandos internos quando possível
+while true; do
+  mqtt-pub arch/ram `awk '/MemTotal/{t=$2} /MemAvailable/{a=$2} END{printf "%.1f\n", (t-a)/1024}' /proc/meminfo`
+   
+  sleep 1
+done

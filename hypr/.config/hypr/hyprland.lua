@@ -12,11 +12,14 @@
 ---- MONITORS ----
 ------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
+-- AOC 24G30E: 1920x1080@180, 10bpc, FreeSync (vrr) habilitado
 hl.monitor({
-	output = "DP-3",
-	mode = "1920x1080@180",
-	position = "auto",
-	scale = "auto",
+  output = "DP-1",
+  mode = "1920x1080@180",
+  position = "auto",
+  scale = "auto",
+  bitdepth = 10,
+  vrr = 1,
 })
 ---------------------
 ---- MY PROGRAMS ----
@@ -38,20 +41,24 @@ local menu = ipc .. " panel-toggle launcher"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-	hl.exec_cmd("syncthing")
-	hl.exec_cmd(
-		"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE DBUS_SESSION_BUS_ADDRESS"
-	)
-	hl.exec_cmd(
-		"systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE DBUS_SESSION_BUS_ADDRESS"
-	)
-	hl.exec_cmd(
-		"systemd-run --user --unit=hyprland-session --property=Type=oneshot --property=RemainAfterExit=yes --property=Wants=graphical-session.target --property=Before=graphical-session.target /usr/bin/true"
-	)
-	hl.exec_cmd("nm-applet")
-	-- hl.exec_cmd("qs -c noctalia-shell")
-	hl.exec_cmd("noctalia --daemon")
-	hl.exec_cmd("sshfs dannielmamede@192.168.0.81:/home/dannielmamede/ rasp/")
+  hl.exec_cmd("mqtt-ram-arch")
+  hl.exec_cmd(
+    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE DBUS_SESSION_BUS_ADDRESS"
+  )
+  hl.exec_cmd(
+    "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE DBUS_SESSION_BUS_ADDRESS"
+  )
+  hl.exec_cmd(
+    "systemd-run --user --unit=hyprland-session --property=Type=oneshot --property=RemainAfterExit=yes --property=Wants=graphical-session.target --property=Before=graphical-session.target /usr/bin/true"
+  )
+  hl.exec_cmd("nm-applet")
+  -- hl.exec_cmd("qs -c noctalia-shell")
+  hl.exec_cmd("noctalia --daemon")
+  hl.exec_cmd("sshfs dannielmamede@192.168.0.81:/home/dannielmamede/ rasp/")
+
+  -- Filtro de luz azul via gammastep (gamma 1.0, temp 6500K = neutro)
+  -- Ajuste on-demand via binds SUPER+SHIFT+T (toggle dia/noite)
+  hl.exec_cmd("gammastep -O 6500 -P -l -30:0 -m wayland")
 end)
 
 -------------------------------
@@ -95,85 +102,85 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-	general = {
-		gaps_in = 5,
-		gaps_out = { top = 5, right = 5, bottom = 5, left = 5 },
-		border_size = 2,
+  general = {
+    gaps_in = 5,
+    gaps_out = { top = 10, right = 10, bottom = 10, left = 10 },
+    border_size = 2,
 
-		-- col = {
-		-- 	active_border = "rgb(b4befe)",
-		-- 	inactive_border = "rgba(595959aa)",
-		-- },
-    
-		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-		resize_on_border = false,
+    -- col = {
+    -- 	active_border = "rgb(b4befe)",
+    -- 	inactive_border = "rgba(595959aa)",
+    -- },
 
-		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-		allow_tearing = false,
+    -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = false,
 
-		layout = "dwindle",
-	},
-	scrolling = {
+    -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
+    allow_tearing = false,
 
-		column_width = 0.66,
-		fullscreen_on_one_column = false,
-		follow_focus = true,
+    layout = "scrolling",
+  },
+  scrolling = {
 
-		explicit_column_widths = 0.66,
-		focus_fit_method = 0,
-	},
+    column_width = 0.67,
+    fullscreen_on_one_column = false,
+    -- follow_focus = true,
 
-	decoration = {
-		rounding = 10,
-		rounding_power = 5,
+    -- explicit_column_widths = 0.9,
+    -- focus_fit_method = 0,
+  },
 
-		-- Change transparency of focused and unfocused windows
-		active_opacity = 1.0,
-		inactive_opacity = 1.0,
+  decoration = {
+    rounding = 10,
+    rounding_power = 5,
 
-		shadow = {
-			enabled = true,
-			range = 4,
-			render_power = 3,
-			color = 0xee1a1a1a,
-		},
+    -- Change transparency of focused and unfocused windows
+    active_opacity = 1.0,
+    inactive_opacity = 1.0,
 
-		blur = {
-			enabled = true,
-			size = 2,
-			passes = 3,
-			vibrancy = 0.1696,
-		},
-	},
+    shadow = {
+      enabled = true,
+      range = 4,
+      render_power = 3,
+      color = 0xee1a1a1a,
+    },
 
-	animations = {
-		enabled = true,
-	},
+    blur = {
+      enabled = true,
+      size = 2,
+      passes = 2,
+      vibrancy = 0.1696,
+    },
+  },
+
+  animations = {
+    enabled = true,
+  },
 })
 
 hl.config({ animations = { enabled = true } })
 
 -- Curvas (bezier)
-hl.curve("default", { type = "bezier", points = { {0.12, 0.92}, {0.08, 1.0} } })
-hl.curve("wind",    { type = "bezier", points = { {0.12, 0.92}, {0.08, 1.0} } })
-hl.curve("overshot",{ type = "bezier", points = { {0.18, 0.95}, {0.22, 1.03} } })
-hl.curve("liner",   { type = "bezier", points = { {1, 1}, {1, 1} } })
+hl.curve("default", { type = "bezier", points = { { 0.12, 0.92 }, { 0.08, 1.0 } } })
+hl.curve("wind", { type = "bezier", points = { { 0.12, 0.92 }, { 0.08, 1.0 } } })
+hl.curve("overshot", { type = "bezier", points = { { 0.18, 0.95 }, { 0.22, 1.03 } } })
+hl.curve("liner", { type = "bezier", points = { { 1, 1 }, { 1, 1 } } })
 
 -- Animações
-hl.animation({ leaf = "windows",     enabled = true, speed = 5,  bezier = "wind",     style = "popin 60%" })
-hl.animation({ leaf = "windowsIn",   enabled = true, speed = 6,  bezier = "overshot", style = "popin 60%" })
-hl.animation({ leaf = "windowsOut",  enabled = true, speed = 4,  bezier = "overshot", style = "popin 60%" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 4,  bezier = "overshot", style = "slide" })
-hl.animation({ leaf = "layers",      enabled = true, speed = 4,  bezier = "default",  style = "popin" })
-hl.animation({ leaf = "fadeIn",      enabled = true, speed = 7,  bezier = "default" })
-hl.animation({ leaf = "fadeOut",     enabled = true, speed = 7,  bezier = "default" })
-hl.animation({ leaf = "fadeSwitch",  enabled = true, speed = 7,  bezier = "default" })
-hl.animation({ leaf = "fadeShadow",  enabled = true, speed = 7,  bezier = "default" })
-hl.animation({ leaf = "fadeDim",     enabled = true, speed = 7,  bezier = "default" })
-hl.animation({ leaf = "fadeLayers",  enabled = true, speed = 7,  bezier = "default" })
-hl.animation({ leaf = "workspaces",  enabled = true, speed = 5,  bezier = "overshot", style = "slidevert" })
-hl.animation({ leaf = "border",      enabled = true, speed = 1,  bezier = "liner" })
-hl.animation({ leaf = "borderangle", enabled = true, speed = 24, bezier = "liner",    style = "loop" })
+hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "wind", style = "popin 60%" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "overshot", style = "popin 60%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 4, bezier = "overshot", style = "popin 60%" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 4, bezier = "overshot", style = "slide" })
+hl.animation({ leaf = "layers", enabled = true, speed = 4, bezier = "default", style = "popin" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 4, bezier = "default" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 4, bezier = "default" })
+hl.animation({ leaf = "fadeSwitch", enabled = true, speed = 4, bezier = "default" })
+hl.animation({ leaf = "fadeShadow", enabled = true, speed = 4, bezier = "default" })
+hl.animation({ leaf = "fadeDim", enabled = true, speed = 4, bezier = "default" })
+hl.animation({ leaf = "fadeLayers", enabled = true, speed = 4, bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "overshot", style = "slidevert" })
+hl.animation({ leaf = "border", enabled = true, speed = 2, bezier = "liner" })
+hl.animation({ leaf = "borderangle", enabled = true, speed = 24, bezier = "liner", style = "loop" })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
@@ -195,17 +202,17 @@ hl.animation({ leaf = "borderangle", enabled = true, speed = 24, bezier = "liner
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
-	dwindle = {
-		preserve_split = true, -- You probably want this
-		force_split = 2,
-	},
+  dwindle = {
+    preserve_split = true, -- You probably want this
+    force_split = 2,
+  },
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
-	master = {
-		new_status = "master",
-	},
+  master = {
+    new_status = "master",
+  },
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
@@ -220,10 +227,11 @@ hl.config({
 ----------------
 
 hl.config({
-	misc = {
-		force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
-		disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
-	},
+  misc = {
+    force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+    vrr = 1,                    -- Habilita FreeSync/VRR globalmente (AOC 24G30E)
+  },
 })
 
 ---------------
@@ -231,36 +239,36 @@ hl.config({
 ---------------
 
 hl.config({
-	input = {
-		kb_layout = "us",
-		kb_variant = "intl",
-		kb_model = "",
-		kb_options = "",
-		kb_rules = "",
-		repeat_delay = 200,
-		repeat_rate = 25,
+  input = {
+    kb_layout = "us",
+    kb_variant = "intl",
+    kb_model = "",
+    kb_options = "",
+    kb_rules = "",
+    repeat_delay = 200,
+    repeat_rate = 25,
 
-		follow_mouse = 1,
+    follow_mouse = 1,
 
-		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+    sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
-		touchpad = {
-			natural_scroll = false,
-		},
-	},
+    touchpad = {
+      natural_scroll = false,
+    },
+  },
 })
 
 hl.gesture({
-	fingers = 3,
-	direction = "horizontal",
-	action = "workspace",
+  fingers = 3,
+  direction = "horizontal",
+  action = "workspace",
 })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-	name = "epic-mouse-v1",
-	sensitivity = -0.5,
+  name = "epic-mouse-v1",
+  sensitivity = -0.5,
 })
 
 ---------------------
@@ -307,9 +315,9 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "d" }))
 
 -- Workspaces: Trocar e Mover janelas (0-9)
 for i = 1, 10 do
-	local key = i % 10
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+  local key = i % 10
+  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Workspace Especial (Scratchpad)
@@ -326,24 +334,24 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-	{ locked = true, repeating = true }
+  "XF86AudioRaiseVolume",
+  hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+  { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-	{ locked = true, repeating = true }
+  "XF86AudioLowerVolume",
+  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+  { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-	{ locked = true, repeating = true }
+  "XF86AudioMute",
+  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+  { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-	{ locked = true, repeating = true }
+  "XF86AudioMicMute",
+  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+  { locked = true, repeating = true }
 )
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
@@ -364,27 +372,27 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 -- Example window rules that are useful
 
 local suppressMaximizeRule = hl.window_rule({
-	-- Ignore maximize requests from all apps. You'll probably like this.
-	name = "suppress-maximize-events",
-	match = { class = ".*" },
+  -- Ignore maximize requests from all apps. You'll probably like this.
+  name = "suppress-maximize-events",
+  match = { class = ".*" },
 
-	suppress_event = "maximize",
+  suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-	-- Fix some dragging issues with XWayland
-	name = "fix-xwayland-drags",
-	match = {
-		class = "^$",
-		title = "^$",
-		xwayland = true,
-		float = true,
-		fullscreen = false,
-		pin = false,
-	},
+  -- Fix some dragging issues with XWayland
+  name = "fix-xwayland-drags",
+  match = {
+    class = "^$",
+    title = "^$",
+    xwayland = true,
+    float = true,
+    fullscreen = false,
+    pin = false,
+  },
 
-	no_focus = true,
+  no_focus = true,
 })
 
 -- Layer rules also return a handle.
@@ -397,19 +405,18 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-	name = "move-hyprland-run",
-	match = { class = "hyprland-run" },
+  name = "move-hyprland-run",
+  match = { class = "hyprland-run" },
 
-	move = "20 monitor_h-120",
-	float = true,
+  move = "20 monitor_h-120",
+  float = true,
 })
 
 hl.window_rule({
-	match = { class = "dev.noctalia.Noctalia" },
-	float = true,
-	size = { 1080, 920 },
+  match = { class = "dev.noctalia.Noctalia" },
+  float = true,
+  size = { 1080, 920 },
 })
-
 
 -- For Noctalia Color templates
 require("noctalia").apply_theme()

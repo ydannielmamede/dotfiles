@@ -38,6 +38,29 @@ vim.lsp.config("lua_ls", {
   },
 })
 
+-- clangd específico para Arduino --------------------------------------------------
+-- Arduino .ino files exigem includes mágicos (Arduino.h, std::String, etc).
+-- O clangd resolve isso via compile_commands.json — geramos automaticamente
+-- via `:ArduinoInitLsp`. Veja lua/config/arduino.lua.
+vim.lsp.config("clangd", {
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--clang-tidy",
+    "--header-insertion=iwyu",
+    "--completion-style=detailed",
+    "--function-arg-placeholders",
+    "-j=4",
+  },
+  init_options = {
+    clangdFileStatus = true,
+    usePlaceholders = true,
+  },
+  filetypes = { "c", "cpp", "arduino", "objc", "objcpp", "cuda" },
+  -- Em .ino, força o filetype cpp pra herdar includes
+  single_file_support = true,
+})
+
 vim.lsp.enable("pyright")
 vim.lsp.enable("ruff")
 -- vim.lsp.enable("jdtls")
