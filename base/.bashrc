@@ -7,6 +7,7 @@
 
 # alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias camera='ffplay -rtsp_transport udp -fflags nobuffer -flags low_delay -framedrop -probesize 32 -analyzeduration 0 "rtsp://admin:123456@192.168.0.38:554/realmonitor?channel=0&stream=1.sdp"'
 #PS1='[\u@\h \W]\$ '
 #PS1="\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;36m\]\w\[\e[0m\]\$ "
 # PS1="\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;34m\]\h \[\e[33m\]\w\[\e[0m\] \$ "

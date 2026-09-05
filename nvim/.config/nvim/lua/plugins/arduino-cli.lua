@@ -67,7 +67,7 @@ end
 -- Helper: roda um comando e mostra saída num split flutuante.
 local function run_in_float(cmd, title)
   local out = vim.fn.systemlist(cmd)
-  local lines = vim.api.nvim_list_extend({ "� " .. cmd }, out)
+  local lines = vim.list_extend({ "▶ " .. cmd }, out)
   -- Cria buffer scratch
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
@@ -142,13 +142,17 @@ function M.upload()
   end
   if vim.bo.modified then vim.cmd("write") end
 
+  -- IMPORTANTE: usar `compile --upload` (uma só passada) em vez de só `upload`,
+  -- porque o `arduino-cli upload` exige que o sketch já tenha sido compilado
+  -- anteriormente e o binário esteja acessível. Sem isso o upload falha com
+  -- "missing compiled sketch" ou similar.
   local cmd = string.format(
-    "arduino-cli upload -p %s --fqbn %s %s 2>&1",
+    "arduino-cli compile --upload -p %s --fqbn %s %s 2>&1",
     vim.g.arduino_port,
     vim.g.arduino_fqbn,
     vim.fn.shellescape(sketch)
   )
-  run_in_float(cmd, "arduino-cli upload")
+  run_in_float(cmd, "arduino-cli compile --upload")
 end
 
 function M.monitor()
@@ -160,8 +164,8 @@ function M.monitor()
   if ok then
     local Terminal = require("toggleterm.terminal").Terminal
     local term = Terminal:new({
-      cmd = string.format("arduino-cli monitor -p %s -c baudrate=115200", vim.g.arduino_port),
-      direction = "bottom",
+      cmd = string.format("arduino-cli monitor -p %s -c baudrate=9600", vim.g.arduino_port),
+      direction = "horizontal",
       close_on_exit = false,
       on_open = function(t) t:resize(15) end,
     })
@@ -169,7 +173,7 @@ function M.monitor()
   else
     -- Fallback: terminal split
     vim.cmd("botright split")
-    vim.cmd("terminal " .. string.format("arduino-cli monitor -p %s -c baudrate=115200", vim.g.arduino_port))
+    vim.cmd("terminal " .. string.format("arduino-cli monitor -p %s -c baudrate=9600", vim.g.arduino_port))
     vim.cmd("startinsert")
   end
 end

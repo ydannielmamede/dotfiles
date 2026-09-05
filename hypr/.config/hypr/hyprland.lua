@@ -103,8 +103,8 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
   general = {
-    gaps_in = 5,
-    gaps_out = { top = 10, right = 10, bottom = 10, left = 10 },
+    gaps_in = 4,
+    gaps_out = { top = 8, right = 8, bottom = 8, left = 8 },
     border_size = 2,
 
     -- col = {
@@ -118,7 +118,7 @@ hl.config({
     -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
     allow_tearing = false,
 
-    layout = "scrolling",
+    layout = "dwindle",
   },
   scrolling = {
 
@@ -127,12 +127,12 @@ hl.config({
     -- follow_focus = true,
 
     -- explicit_column_widths = 0.9,
-    -- focus_fit_method = 0,
+    focus_fit_method = 1,
   },
 
   decoration = {
-    rounding = 10,
-    rounding_power = 5,
+    rounding = 5,
+    rounding_power = 20,
 
     -- Change transparency of focused and unfocused windows
     active_opacity = 1.0,
@@ -147,8 +147,8 @@ hl.config({
 
     blur = {
       enabled = true,
-      size = 2,
-      passes = 2,
+      size = 1,
+      passes = 4,
       vibrancy = 0.1696,
     },
   },
@@ -158,7 +158,7 @@ hl.config({
   },
 })
 
-hl.config({ animations = { enabled = true } })
+hl.config({ animations = { enabled = false } })
 
 -- Curvas (bezier)
 hl.curve("default", { type = "bezier", points = { { 0.12, 0.92 }, { 0.08, 1.0 } } })
