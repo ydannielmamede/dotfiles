@@ -147,7 +147,7 @@ hl.config({
 
     blur = {
       enabled = true,
-      size = 1,
+      size = 2,
       passes = 4,
       vibrancy = 0.1696,
     },
@@ -158,29 +158,45 @@ hl.config({
   },
 })
 
-hl.config({ animations = { enabled = false } })
+-- ==========================================
+-- CURVAS DE ANIMAÇÃO (Bézier)
+-- Otimizadas para 180Hz: aceleração rápida e desaceleração suave
+-- ==========================================
+hl.curve("fluid", { type = "bezier", points = { { 0.16, 1.0 }, { 0.3, 1.0 } } })
+hl.curve("snappy", { type = "bezier", points = { { 0.2, 0.95 }, { 0.1, 1.0 } } })
+hl.curve("easeOutCirc", { type = "bezier", points = { { 0.0, 0.55 }, { 0.45, 1.0 } } })
+hl.curve("liner", { type = "bezier", points = { { 1.0, 1.0 }, { 1.0, 1.0 } } })
 
--- Curvas (bezier)
-hl.curve("default", { type = "bezier", points = { { 0.12, 0.92 }, { 0.08, 1.0 } } })
-hl.curve("wind", { type = "bezier", points = { { 0.12, 0.92 }, { 0.08, 1.0 } } })
-hl.curve("overshot", { type = "bezier", points = { { 0.18, 0.95 }, { 0.22, 1.03 } } })
-hl.curve("liner", { type = "bezier", points = { { 1, 1 }, { 1, 1 } } })
+-- ==========================================
+-- ANIMAÇÕES
+-- Estilo: Snappy & Fluido com foco em alta taxa de atualização
+-- ==========================================
+-- Janelas (Popin Suave)
+hl.animation({ leaf = "windows", enabled = true, speed = 3.2, bezier = "fluid", style = "popin 75%" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 3.0, bezier = "fluid", style = "popin 75%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.5, bezier = "snappy", style = "popin 80%" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 3.5, bezier = "fluid", style = "slide" })
 
--- Animações
-hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "wind", style = "popin 60%" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "overshot", style = "popin 60%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 4, bezier = "overshot", style = "popin 60%" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 4, bezier = "overshot", style = "slide" })
-hl.animation({ leaf = "layers", enabled = true, speed = 4, bezier = "default", style = "popin" })
-hl.animation({ leaf = "fadeIn", enabled = true, speed = 4, bezier = "default" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 4, bezier = "default" })
-hl.animation({ leaf = "fadeSwitch", enabled = true, speed = 4, bezier = "default" })
-hl.animation({ leaf = "fadeShadow", enabled = true, speed = 4, bezier = "default" })
-hl.animation({ leaf = "fadeDim", enabled = true, speed = 4, bezier = "default" })
-hl.animation({ leaf = "fadeLayers", enabled = true, speed = 4, bezier = "default" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "overshot", style = "slidevert" })
-hl.animation({ leaf = "border", enabled = true, speed = 2, bezier = "liner" })
-hl.animation({ leaf = "borderangle", enabled = true, speed = 24, bezier = "liner", style = "loop" })
+-- Layers / UI (Noctalia, Launcher, Notificações)
+hl.animation({ leaf = "layers", enabled = true, speed = 3.0, bezier = "snappy", style = "popin 80%" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 2.8, bezier = "snappy", style = "popin 80%" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 2.2, bezier = "snappy", style = "popin 85%" })
+
+-- Fades & Transições de Opacidade
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 2.5, bezier = "fluid" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 2.5, bezier = "snappy" })
+hl.animation({ leaf = "fadeSwitch", enabled = true, speed = 3.0, bezier = "fluid" })
+hl.animation({ leaf = "fadeShadow", enabled = true, speed = 3.0, bezier = "fluid" })
+hl.animation({ leaf = "fadeDim", enabled = true, speed = 3.0, bezier = "fluid" })
+hl.animation({ leaf = "fadeLayers", enabled = true, speed = 2.5, bezier = "snappy" })
+
+-- Workspaces (Slide Vertical + Fade)
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3.2, bezier = "fluid", style = "slidefadevert 20%" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3.2, bezier = "fluid", style = "slidefadevert 20%" })
+
+-- Bordas
+hl.animation({ leaf = "border", enabled = true, speed = 2.5, bezier = "fluid" })
+hl.animation({ leaf = "borderangle", enabled = true, speed = 24.0, bezier = "liner", style = "loop" })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
