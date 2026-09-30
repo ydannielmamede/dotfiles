@@ -69,7 +69,49 @@ vim.lsp.enable("bashls")
 vim.lsp.enable("vimls")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")
+vim.lsp.config("ts_ls", {
+  root_markers = { "package.json", "tsconfig.json", "jsconfig.json", ".git" },
+  settings = {
+    typescript = {
+      inlayHints = {
+        parameterNames = { enabled = "all" },
+        parameterTypes = { enabled = true },
+        variableTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+      },
+    },
+    javascript = {
+      inlayHints = {
+        parameterNames = { enabled = "all" },
+        parameterTypes = { enabled = true },
+        variableTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+      },
+    },
+  },
+})
+
+vim.lsp.config("eslint", {
+  root_markers = {
+    "eslint.config.js",
+    "eslint.config.mjs",
+    "eslint.config.cjs",
+    ".eslintrc",
+    ".eslintrc.js",
+    ".eslintrc.cjs",
+    ".eslintrc.json",
+    "package.json",
+    ".git",
+  },
+  settings = {
+    workingDirectory = { mode = "auto" },
+  },
+})
+
 vim.lsp.enable("ts_ls")
+vim.lsp.enable("eslint")
 -- vim.lsp.enable("hyprls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("taplo")

@@ -4,6 +4,7 @@ return {
     dependencies = {
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio",
+        "mxsdev/nvim-dap-vscode-js",
     },
     config = function()
         local dap = require("dap")
@@ -37,5 +38,49 @@ return {
 
         vim.keymap.set("n", "<Leader>dr", dap.repl.open)
         vim.keymap.set("n", "<Leader>dl", dap.run_last)
+
+        require("dap-vscode-js").setup({
+            debugger_cmd = { "js-debug-adapter" },
+            adapters = { "pwa-node", "pwa-chrome" },
+        })
+
+        local javascript_filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+        }
+
+        for _, filetype in ipairs(javascript_filetypes) do
+            dap.configurations[filetype] = {
+                {
+                    type = "pwa-node",
+                    request = "launch",
+                    name = "Launch current file (Node)",
+                    program = "${file}",
+                    cwd = "${workspaceFolder}",
+                    console = "integratedTerminal",
+                    sourceMaps = true,
+                },
+                {
+                    type = "pwa-node",
+                    request = "attach",
+                    name = "Attach to Node process",
+                    processId = require("dap.utils").pick_process,
+                    cwd = "${workspaceFolder}",
+                    skipFiles = { "<node_internals>/**" },
+                },
+                {
+                    type = "pwa-chrome",
+                    request = "launch",
+                    name = "Launch Chrome",
+                    url = function()
+                        return vim.fn.input("URL: ", "http://localhost:3000")
+                    end,
+                    webRoot = "${workspaceFolder}",
+                    sourceMaps = true,
+                },
+            }
+        end
     end,
 }

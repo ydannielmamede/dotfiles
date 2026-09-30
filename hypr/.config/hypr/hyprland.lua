@@ -191,8 +191,8 @@ hl.animation({ leaf = "fadeDim", enabled = true, speed = 3.0, bezier = "fluid" }
 hl.animation({ leaf = "fadeLayers", enabled = true, speed = 2.5, bezier = "snappy" })
 
 -- Workspaces (Slide Vertical + Fade)
-hl.animation({ leaf = "workspaces", enabled = true, speed = 3.2, bezier = "fluid", style = "slidefadevert 20%" })
-hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3.2, bezier = "fluid", style = "slidefadevert 20%" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3.2, bezier = "fluid", style = "slidefade 20%" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3.2, bezier = "fluid", style = "slidefade 20%" })
 
 -- Bordas
 hl.animation({ leaf = "border", enabled = true, speed = 2.5, bezier = "fluid" })

@@ -48,8 +48,17 @@ return {
 
       -- DOCUMENTAÇÃO
       completion = {
+        trigger = {
+          show_on_keyword = true,
+          show_on_backspace = true,
+          show_on_backspace_in_keyword = true,
+          show_on_trigger_character = true,
+        },
+        menu = {
+          auto_show = true,
+        },
         documentation = {
-          auto_show = false,
+          auto_show = true,
         },
       },
 

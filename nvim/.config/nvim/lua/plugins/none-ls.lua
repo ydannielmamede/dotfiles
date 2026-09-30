@@ -20,7 +20,6 @@ return {
 
 		null_ls.setup({
 			sources = {
-				null_ls.builtins.formatting.prettier, -- JS, TS, HTML, CSS
 				null_ls.builtins.formatting.black, -- Python
 				null_ls.builtins.formatting.djlint.with({
 					filetypes = { "htmldjango", "html", "jinja", "jinja.html" },
@@ -36,6 +35,20 @@ return {
 
 		-- Formatar código
 		vim.keymap.set("n", "<leader>qq", function()
+			local javascript_filetypes = {
+				javascript = true,
+				javascriptreact = true,
+				typescript = true,
+				typescriptreact = true,
+				json = true,
+				jsonc = true,
+			}
+
+			if javascript_filetypes[vim.bo.filetype] then
+				require("conform").format({ async = true, lsp_format = "fallback" })
+				return
+			end
+
 			vim.lsp.buf.format({ async = true })
 		end, { desc = "Format code" })
 
