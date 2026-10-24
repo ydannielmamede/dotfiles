@@ -11,6 +11,23 @@ return {
       local t = ls.text_node
       local f = ls.function_node
 
+      ls.config.set_config({
+        history = false,
+        update_events = "TextChanged,TextChangedI",
+        delete_check_events = "TextChanged",
+        region_check_events = "CursorMoved",
+      })
+
+      -- Desvincula snippets órfãos ao voltar para normal mode, evitando cursor fora de alcance
+      vim.api.nvim_create_autocmd("ModeChanged", {
+        pattern = { "s:n", "i:n" },
+        callback = function()
+          if ls.session.current_nodes[vim.api.nvim_get_current_buf()] and not ls.session.jump_active then
+            ls.unlink_current()
+          end
+        end,
+      })
+
       require("luasnip.loaders.from_vscode").lazy_load({ exclude = { "java" } })
 
       ls.add_snippets("java", {

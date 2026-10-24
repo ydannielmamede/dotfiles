@@ -1,6 +1,17 @@
 return {
-
     "mfussenegger/nvim-dap",
+    cmd = { "DapContinue", "DapToggleBreakpoint" },
+    keys = {
+        { "<F5>", desc = "DAP Continue" },
+        { "<F10>", desc = "DAP Step Over" },
+        { "<F1>", desc = "DAP Step Into" },
+        { "<F2>", desc = "DAP Step Out" },
+        { "<Leader>b", desc = "DAP Toggle Breakpoint" },
+        { "<Leader>B", desc = "DAP Set Breakpoint" },
+        { "<Leader>lp", desc = "DAP Set Log Point" },
+        { "<Leader>dr", desc = "DAP REPL Open" },
+        { "<Leader>dl", desc = "DAP Run Last" },
+    },
     dependencies = {
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio",

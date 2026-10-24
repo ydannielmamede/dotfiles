@@ -3,28 +3,7 @@ require("config.lsp")
 require("config.options")
 require("config.diagnostics")
 require("config.arduino")
---usar clipboard do sistema operacional
+
+-- Usar clipboard do sistema operacional
 vim.opt.clipboard = "unnamedplus"
-
 vim.opt.termguicolors = true
-require("bufferline").setup{}
-
---notificacoes
--- require("notify").setup({
---   background_colour = "#000000",
--- })
-
--- abrir diretorio na pasta atual
-vim.opt.autochdir = true
-
---snippets vs-code
-
-
-
--- adiciona no final do init.lua (carregar treesitter em arquivo python)
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "python" },
-  callback = function()
-    pcall(vim.treesitter.start)
-  end,
-})

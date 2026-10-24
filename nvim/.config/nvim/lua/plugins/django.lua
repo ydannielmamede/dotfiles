@@ -1,10 +1,7 @@
-return  {
-  'jamsjz/django.nvim',
-  requires = {
-    -- {'nvim-telescope/telescope.nvim'},  -- Optional
-    {'voldikss/vim-floaterm'},          -- Optional
-  },
+return {
+  "jamsjz/django.nvim",
+  ft = { "python", "htmldjango" },
   config = function()
-    require('django').setup()
-  end
+    require("django").setup()
+  end,
 }

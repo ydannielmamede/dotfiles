@@ -1,5 +1,6 @@
 return {
 	"karb94/neoscroll.nvim",
+	event = "VeryLazy",
 	config = function()
 		local neoscroll = require("neoscroll")
 		neoscroll.setup({
@@ -20,6 +21,5 @@ return {
 		for k, f in pairs(scroll_keys) do
 			vim.keymap.set({ "n", "v", "x" }, k, f)
 		end
-	end
+	end,
 }
-

@@ -18,20 +18,22 @@ return {
 			}),
 		})
 
-		null_ls.setup({
-			sources = {
-				null_ls.builtins.formatting.black, -- Python
-				null_ls.builtins.formatting.djlint.with({
-					filetypes = { "htmldjango", "html", "jinja", "jinja.html" },
-				}), -- Django/Jinja templates
-				-- null_ls.builtins.formatting.clang_format, -- C/C++
-				null_ls.builtins.formatting.gofmt, -- Go
-				null_ls.builtins.formatting.stylua, -- Lua
-				null_ls.builtins.diagnostics.selene, -- Lua
-				null_ls.builtins.formatting.google_java_format, -- Java
-				null_ls.builtins.diagnostics.hadolint, -- Dockerfile
-			},
-		})
+		local sources = {
+			null_ls.builtins.formatting.black, -- Python
+			null_ls.builtins.formatting.djlint.with({
+				filetypes = { "htmldjango", "html", "jinja", "jinja.html" },
+			}), -- Django/Jinja templates
+			null_ls.builtins.formatting.stylua, -- Lua
+			null_ls.builtins.diagnostics.selene, -- Lua
+			null_ls.builtins.formatting.google_java_format, -- Java
+			null_ls.builtins.diagnostics.hadolint, -- Dockerfile
+		}
+
+		if vim.fn.executable("gofmt") == 1 then
+			table.insert(sources, null_ls.builtins.formatting.gofmt)
+		end
+
+		null_ls.setup({ sources = sources })
 
 		-- Formatar código
 		vim.keymap.set("n", "<leader>qq", function()

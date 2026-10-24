@@ -1,6 +1,10 @@
 return {
   {
     "CRAG666/code_runner.nvim",
+    cmd = { "RunCode", "RunFile", "RunProject", "RunClose" },
+    keys = {
+      { "<leader>r", desc = "Run code / current file" },
+    },
     config = function()
       require("code_runner").setup({
         filetype = {
@@ -53,7 +57,7 @@ return {
         else
           vim.cmd("RunCode")
         end
-      end, { noremap = true, silent = true })
+      end, { noremap = true, silent = true, desc = "Run code / current file" })
     end,
   },
 }

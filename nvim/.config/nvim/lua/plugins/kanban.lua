@@ -1,6 +1,10 @@
 return {
   "arakkkkk/kanban.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
+  cmd = { "KanbanOpen", "KanbanCreate" },
+  keys = {
+    { "<leader>kc", desc = "Kanban: encontrar ou criar kanban-tasks.md" },
+  },
   config = function()
     require("kanban").setup({
       markdown = {
