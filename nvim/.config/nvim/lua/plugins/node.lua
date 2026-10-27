@@ -111,20 +111,9 @@ return {
           condition = project_uses_prettier,
         },
       },
-      format_on_save = function(bufnr)
-        local javascript_filetypes = {
-          javascript = true,
-          javascriptreact = true,
-          typescript = true,
-          typescriptreact = true,
-          json = true,
-          jsonc = true,
-        }
-
-        if javascript_filetypes[vim.bo[bufnr].filetype] then
-          return { timeout_ms = 2000, lsp_format = "fallback" }
-        end
-      end,
+      -- Como no VS Code sem "Format on Save", salvar não reformata o arquivo inteiro.
+      -- O formato de indentação continua sendo de 2 espaços, definido em config/options.lua.
+      format_on_save = false,
     },
     keys = {
       {

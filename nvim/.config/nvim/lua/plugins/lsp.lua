@@ -17,6 +17,11 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           vim.bo[args.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {
+            buffer = args.buf,
+            desc = "Code actions",
+          })
         end,
       })
     end,
