@@ -6,17 +6,22 @@ return {
       { "<leader>r", desc = "Run code / current file" },
     },
     config = function()
+      local is_windows = vim.fn.has("win32") == 1
+      local python = is_windows and "python -u" or "python3 -u"
+      local c = is_windows
+          and "cd /d $dir && gcc $fileName -o $fileNameWithoutExt.exe && $fileNameWithoutExt.exe"
+        or "cd $dir && gcc $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt"
+      local rust = is_windows
+          and { "cd /d $dir &&", "rustc $fileName &&", "$fileNameWithoutExt.exe" }
+        or { "cd $dir &&", "rustc $fileName &&", "$dir/$fileNameWithoutExt" }
+
       require("code_runner").setup({
         filetype = {
           pascal = "cd $dir && fpc $fileName && $dir/$fileNameWithoutExt",
-          python = "python3 -u",
+          python = python,
           typescript = "deno run",
-          rust = {
-            "cd $dir &&",
-            "rustc $fileName &&",
-            "$dir/$fileNameWithoutExt",
-          },
-          c = "cd $dir && gcc $fileName -o /tmp/$fileNameWithoutExt && /tmp/$fileNameWithoutExt",
+          rust = rust,
+          c = c,
         },
       })
 
@@ -36,12 +41,21 @@ return {
 
         local class_name = vim.fn.expand("%:t:r")
         local main_class = package and (package .. "." .. class_name) or class_name
-        local cmd = table.concat({
-          "cd " .. vim.fn.shellescape(root),
-          "mkdir -p bin",
-          "javac -d bin $(find . -name '*.java' -not -path './bin/*')",
-          "java -cp bin " .. vim.fn.shellescape(main_class),
-        }, " && ")
+        local cmd
+        if is_windows then
+          cmd = string.format(
+            'powershell -NoProfile -Command "Set-Location \'%s\'; if (!(Test-Path bin)) { New-Item -ItemType Directory -Path bin | Out-Null }; javac -d bin (Get-ChildItem -Recurse -Filter *.java -Exclude bin).FullName; java -cp bin %s"',
+            root:gsub("'", "''"),
+            main_class
+          )
+        else
+          cmd = table.concat({
+            "cd " .. vim.fn.shellescape(root),
+            "mkdir -p bin",
+            "javac -d bin $(find . -name '*.java' -not -path './bin/*')",
+            "java -cp bin " .. vim.fn.shellescape(main_class),
+          }, " && ")
+        end
 
         vim.cmd("belowright split | terminal " .. cmd)
       end

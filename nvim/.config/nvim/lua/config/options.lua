@@ -1,8 +1,8 @@
 vim.opt.number = true
 -- vim.opt.relativenumber = true
 
--- Abrir links com xdg-open
-vim.g.netrw_browsex_viewer = "xdg-open"
+-- Abrir links com o visualizador disponível no sistema.
+vim.g.netrw_browsex_viewer = vim.fn.has("win32") == 1 and "start" or "xdg-open"
 
 -- Selcionar tudo com Ctrl+A
 vim.keymap.set("n", "<C-a>", "ggVG", { noremap = true, silent = true })
