@@ -56,8 +56,8 @@ return {
         ["@lsp.type.property"] = { fg = "$cyan" },
         ["@lsp.typemod.variable.defaultLibrary"] = { fg = "$orange" },
         ["@lsp.typemod.variable.injected"] = { fg = "$blue" },
-        -- Constantes (const) em azul negrito (evita conflito com keywords roxas)
-        ["@lsp.typemod.variable.readonly"] = { fg = "$blue", fmt = "bold" },
+        -- Constantes (const) seguem o mesmo azul das variáveis locais
+        ["@lsp.typemod.variable.readonly"] = { fg = "$blue" },
 
         -- Módulos em laranja
         ["@module"] = { fg = "$orange" },
