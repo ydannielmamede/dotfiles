@@ -40,12 +40,24 @@ return {
         LineNrAbove = { fg = "$fg" },
         LineNrBelow = { fg = "$fg" },
 
-        -- Variáveis em azul
+        -- Variáveis locais em azul
         ["@variable"] = { fg = "$blue" },
-        ["@variable.builtin"] = { fg = "$blue" },
-        ["@variable.member"] = { fg = "$blue" },
-        ["@variable.parameter"] = { fg = "$blue" },
-        ["@variable.field"] = { fg = "$blue" },
+        -- Parâmetros em azul itálico
+        ["@variable.parameter"] = { fg = "$blue", fmt = "italic" },
+        -- Built-in / globais em laranja
+        ["@variable.builtin"] = { fg = "$orange" },
+        -- Propriedades / membros em ciano
+        ["@variable.member"] = { fg = "$cyan" },
+        ["@variable.field"] = { fg = "$cyan" },
+
+        -- Tokens semânticos do LSP (prioridade sobre Tree-sitter)
+        ["@lsp.type.variable"] = { fg = "$blue" },
+        ["@lsp.type.parameter"] = { fg = "$blue", fmt = "italic" },
+        ["@lsp.type.property"] = { fg = "$cyan" },
+        ["@lsp.typemod.variable.defaultLibrary"] = { fg = "$orange" },
+        ["@lsp.typemod.variable.injected"] = { fg = "$blue" },
+        -- Constantes (const) em azul negrito (evita conflito com keywords roxas)
+        ["@lsp.typemod.variable.readonly"] = { fg = "$blue", fmt = "bold" },
 
         -- Módulos em laranja
         ["@module"] = { fg = "$orange" },
