@@ -20,6 +20,14 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 
+-- Mover linhas como no VS Code com Alt + j/k
+vim.keymap.set("n", "<A-k>", "<cmd>move .-2<CR>==", { desc = "Mover linha para cima" })
+vim.keymap.set("n", "<A-j>", "<cmd>move .+1<CR>==", { desc = "Mover linha para baixo" })
+vim.keymap.set("v", "<A-k>", ":move '<-2<CR>gv=gv", { desc = "Mover seleção para cima" })
+vim.keymap.set("v", "<A-j>", ":move '>+1<CR>gv=gv", { desc = "Mover seleção para baixo" })
+vim.keymap.set("i", "<A-k>", "<Esc><cmd>move .-2<CR>==gi", { desc = "Mover linha para cima" })
+vim.keymap.set("i", "<A-j>", "<Esc><cmd>move .+1<CR>==gi", { desc = "Mover linha para baixo" })
+
 -- Live Server ON
 vim.keymap.set("n", "<leader>ls", ":LiveServerStart<CR>", { desc = "Live Server Start" })
 -- Live Server OFF
