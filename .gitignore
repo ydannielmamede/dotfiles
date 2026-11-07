@@ -16,3 +16,4 @@ yazi/.config/yazi/flavors/noctalia.yazi/tmtheme.xml
 
 # Noctalia generated cache files
 **/.noctalia-cache.json
+scripts/.local/bin/goose

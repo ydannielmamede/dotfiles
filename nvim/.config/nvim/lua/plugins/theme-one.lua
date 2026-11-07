@@ -40,10 +40,14 @@ return {
         LineNrAbove = { fg = "$fg" },
         LineNrBelow = { fg = "$fg" },
 
+        -- Seleção visual (Shift+V / v): azul forte e texto escuro para contraste.
+        Visual = { fg = "$black", bg = "$bg_blue", fmt = "bold" },
+        VisualNOS = { fg = "$black", bg = "$bg_blue", fmt = "bold" },
+
         -- Variáveis locais em azul
         ["@variable"] = { fg = "$blue" },
-        -- Parâmetros em azul itálico
-        ["@variable.parameter"] = { fg = "$blue", fmt = "italic" },
+        -- Parâmetros em vermelho itálico
+        ["@variable.parameter"] = { fg = "$red", fmt = "italic" },
         -- Built-in / globais em laranja
         ["@variable.builtin"] = { fg = "$orange" },
         -- Propriedades / membros em ciano
@@ -52,7 +56,7 @@ return {
 
         -- Tokens semânticos do LSP (prioridade sobre Tree-sitter)
         ["@lsp.type.variable"] = { fg = "$blue" },
-        ["@lsp.type.parameter"] = { fg = "$blue", fmt = "italic" },
+        ["@lsp.type.parameter"] = { fg = "$red", fmt = "italic" },
         ["@lsp.type.property"] = { fg = "$cyan" },
         ["@lsp.typemod.variable.defaultLibrary"] = { fg = "$orange" },
         ["@lsp.typemod.variable.injected"] = { fg = "$blue" },
